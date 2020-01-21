@@ -61,12 +61,86 @@ bot.on('message', message => {
       var dégat = Math.floor(Math.random() * Math.floor(2))
       dégat += 3
       if(message.content[8]+message.content[9]+message.content[10] === "atk"){
+        if(message.content[11] === "-"){
+        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+        if(message.content[12] === "-"){
+          dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+          if(message.content[13] === "-"){
+            dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+            if(message.content[14] === "-"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[15] === "-"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }
+              }    
+            }    
+          }
+        }
+      }
+      if(message.content[11]+message.content[12]+message.content[13] === "atk"){
+        if(message.content[14] === "-"){
+        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+        if(message.content[15] === "-"){
+          dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+          if(message.content[16] === "-"){
+            dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+            if(message.content[17] === "-"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[18] === "-"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }  
+              }
+            }
+          }
+        }
+      }
+      if(message.content[15]+message.content[16]+message.content[17] === "atk"){
+        if(message.content[18] === "-"){
+        dégat += Math.floor(Math.random() * Math.floor(4)) + 2
+        if(message.content[19] === "-"){
+          dégat += Math.floor(Math.random() * Math.floor(6)) + 2
+          if(message.content[20] === "-"){
+            dégat += Math.floor(Math.random() * Math.floor(8)) + 2
+            if(message.content[21] === "-"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[22] === "-"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }
+              }
+            }
+          }
+        }
+      }
+      if(message.content[18]+message.content[19]+message.content[20] === "atk"){
+        if(message.content[21] === "-"){
+        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+        if(message.content[22] === "-"){
+          dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+          if(message.content[23] === "-"){
+            dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+            if(message.content[24] === "-"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[25] === "-"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }
+              }
+            }
+          }
+        }
+      }
+      if(message.content[8]+message.content[9]+message.content[10] === "atk"){
         if(message.content[11] === "+"){
         dégat += Math.floor(Math.random() * Math.floor(3)) + 2
         if(message.content[12] === "+"){
           dégat += Math.floor(Math.random() * Math.floor(3)) + 2
           if(message.content[13] === "+"){
             dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+            if(message.content[14] === "+"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[15] === "+"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }    
+              }
             }
           }
         }
@@ -78,6 +152,12 @@ bot.on('message', message => {
           dégat += Math.floor(Math.random() * Math.floor(3)) + 2
           if(message.content[16] === "+"){
             dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+            if(message.content[17] === "+"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[18] === "+"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }    
+              }
             }
           }
         }
@@ -89,6 +169,12 @@ bot.on('message', message => {
           dégat += Math.floor(Math.random() * Math.floor(6)) + 2
           if(message.content[20] === "+"){
             dégat += Math.floor(Math.random() * Math.floor(8)) + 2
+            if(message.content[21] === "+"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[22] === "+"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }
+              }
             }
           }
         }
@@ -100,11 +186,16 @@ bot.on('message', message => {
           dégat += Math.floor(Math.random() * Math.floor(3)) + 2
           if(message.content[23] === "+"){
             dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+            if(message.content[24] === "+"){
+              dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+              if(message.content[25] === "+"){
+                dégat += Math.floor(Math.random() * Math.floor(3)) + 2
+                }
+              }
             }
           }
         }
       }
-      
       if(crit <= 7){
         dégat += Math.floor(Math.random() * Math.floor(4)) + 2
         message.channel.send("> ***COUP CRITIQUE !!***")
