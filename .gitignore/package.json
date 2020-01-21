@@ -1,0 +1,13 @@
+{
+  "name": "faytbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ICS",
+  "dependencies": {
+    "discord.js": "^11.5.0"
+  }
+}
