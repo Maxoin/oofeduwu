@@ -7,6 +7,14 @@ bot.on('ready',() => {
 
 bot.login(process.env.token);
 
+bot.on('message', message => { //Dégat Brûlure
+  if(message.content[0]+message.content[1]+message.content[2]+message.content[3]+message.content[4] === "/brul"){
+  var dégatbru = Math.floor(Math.random() * Math.floor(6))
+  dégatbru += 5
+  message.channel.send("> La brûlure t'inflige **" + dégatbru + "** points de dégats !")
+  }
+})
+
 bot.on('message', message => { //Attaque Charge
   if(message.content[0]+message.content[1]+message.content[2]+message.content[3]+message.content[4]+message.content[5]+message.content[6] === "/charge"){
     var probafail = Math.floor(Math.random() * Math.floor(100))
@@ -101,7 +109,6 @@ bot.on('message', message => { //Attaque Flammèche
       var crit = Math.floor(Math.random() * Math.floor(100))
       var dégat = Math.floor(Math.random() * Math.floor(4))
       dégat += 4
-      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       if(message.content.includes("atk")){
         if(message.content.includes("atk-")){
           dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
@@ -152,6 +159,10 @@ bot.on('message', message => { //Attaque Flammèche
         dégat = 1
       }
       message.channel.send("> L'attaque réussie ! L'adversaire subit **" + dégat + "** points de dégats !")
+      var brul = Math.floor(Math.random() * Math.floor(10))
+      if(brul <= 10){
+        message.channel.send("> Votre adversaire est brulé !\n(Il devra effectuer la commande ``/brul`` aprés chacunes de ses actions)")
+      }
     }
   }
 })
