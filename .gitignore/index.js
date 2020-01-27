@@ -235,7 +235,7 @@ bot.on('message', message => { //Attaque Flammèche
       message.channel.send("> L'attaque réussie ! L'adversaire subit **" + dégat + "** points de dégats !")
       var brul = Math.floor(Math.random() * Math.floor(10))
       if(brul <= 10){
-        message.channel.send("> Votre adversaire est brulé !\n(Il devra effectuer la commande ``/brul`` aprés chacunes de ses actions)")
+        message.channel.send("> Votre adversaire est brulé !\n> (Il devra effectuer la commande ``/brul`` aprés chacunes de ses actions)")
       }
     }
   }
