@@ -40,7 +40,7 @@ bot.on('message', message => { //Des
 
 bot.on('message', message => { //Iris
     if(message.author.id === "339848621908426752" && message.content === "!!list"){
-    message.channel.send("__**~Iris~**__\n-sad")
+    message.channel.send("__**~Iris~**__\n-sad\n-fight")
     }
     if(message.author.id === "339848621908426752" && message.content === "!!sad"){
     message.channel.send("https://www.youtube.com/watch?v=D3scyfzqRU0")
