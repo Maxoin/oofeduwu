@@ -9,7 +9,7 @@ bot.on('ready',() => {
 bot.login(process.env.token);
 
 bot.on('message', message => { //Garen
-    if(message.author.id === "395678267207843872" && message.content === "!!vengeance"){
+    if(message.author.id === "395678267207843872" && message.content === "!!karma"){
     message.channel.send("https://www.youtube.com/watch?v=2O7MmZ8geMw\n\n\n**Le Karma ? Je suis le Karma.**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!combat3"){
