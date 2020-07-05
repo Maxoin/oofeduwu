@@ -21,6 +21,9 @@ bot.on('message', message => { //Garen
     if(message.author.id === "395678267207843872" && message.content === "!!combat1"){
     message.channel.send("https://www.youtube.com/watch?v=aMxcPgEJkfA\n\n\n**Je m'occupe de lui et je reviens.**")
     }
+    if(message.author.id === "395678267207843872" && message.content === "!!sad"){
+    message.channel.send("https://www.youtube.com/watch?v=uOhaJNUhPG4\n\n\n**Qu'es ce que je fais encore la, si je suis sans elle ?**")
+    }
 })
 
 bot.on('message', message => { //Des
