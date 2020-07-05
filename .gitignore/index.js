@@ -1,242 +1,30 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
 
+
 bot.on('ready',() => {
     console.log('Bot Ready')
 })
 
 bot.login(process.env.token);
 
-bot.on('message', message => { //Dégat Brûlure
-  if(message.content[0]+message.content[1]+message.content[2]+message.content[3]+message.content[4] === "/brul"){
-  var dégatbru = Math.floor(Math.random() * Math.floor(6))
-  dégatbru += 5
-  message.channel.send("> La brûlure t'inflige **" + dégatbru + "** points de dégats !")
-  }
+bot.on('message', message => { //Garen
+    if(message.author.id === "395678267207843872" && message.content === "!!vengeance"){
+    message.channel.send("https://www.youtube.com/watch?v=2O7MmZ8geMw\n\n\n**Le Karma ? Je suis le Karma.**")
+    }
+    if(message.author.id === "395678267207843872" && message.content === "!!combat3"){
+    message.channel.send("https://www.youtube.com/watch?v=5ddOT_TJnKg\n\n\n**Puisse l'__Honneur__ guider mes pas dans ce combat d'anthologie.**")
+    }
+    if(message.author.id === "395678267207843872" && message.content === "!!combat2"){
+    message.channel.send("https://www.youtube.com/watch?v=D-FH3VdSmig\n\n\n**Je donnerai tout pour répendre Justice.**")
+    }
+    if(message.author.id === "395678267207843872" && message.content === "!!combat1"){
+    message.channel.send("https://www.youtube.com/watch?v=aMxcPgEJkfA\n\n\n**Je m'occupe de lui et je reviens.**")
+    }
 })
 
-bot.on('message', message => { //Attaque Charge
-  if(message.content[0]+message.content[1]+message.content[2]+message.content[3]+message.content[4]+message.content[5]+message.content[6] === "/charge"){
-    var probafail = Math.floor(Math.random() * Math.floor(100))
-    if(message.content.includes("pre")){
-      if(message.content.includes("pre-")){
-      probafail -= Math.floor(Math.random() * Math.floor(3)) + 3
-      }
-      if(message.content.includes("pre--")){
-        probafail -= Math.floor(Math.random() * Math.floor(5)) + 3
-      }
-      if(message.content.includes("pre---")){
-          probafail -= Math.floor(Math.random() * Math.floor(6)) + 4
-      }
+bot.on('message', message => { //Des
+    if(message.author.id === "161908030559092738" && message.content === "!!investigations1"){
+    message.channel.send("https://www.youtube.com/watch?v=AtgquM4JKR0")
     }
-    if(probafail >= 90){
-      message.channel.send("> L'adversaire esquive votre attaque !")
-    }else{
-      var crit = Math.floor(Math.random() * Math.floor(100))
-      var dégat = Math.floor(Math.random() * Math.floor(2))
-      dégat += 3
-      if(message.content.includes("atk")){
-        if(message.content.includes("atk-")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk--")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk---")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk----")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk-----")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-    }
-    if(message.content.includes("atk")){
-      if(message.content.includes("atk+")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk+++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk++++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk+++++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-  }
-      if(crit <= 7){
-        dégat += Math.floor(Math.random() * Math.floor(4)) + 2
-        message.channel.send("> ***COUP CRITIQUE !!***")
-      }
-      if(message.content[8]+message.content[9] === "SE"){
-        dégat + Math.floor(Math.random() * Math.floor(5)) + 3
-        message.channel.send("> ***C'est super efficace !***")
-      }
-      if(message.content[8]+message.content[9] === "PE"){
-        dégat -= Math.floor(Math.random() * Math.floor(4)) + 3
-        message.channel.send("> *Ce n'est pas trés efficace...*")
-      }
-      if(dégat <= 0){
-        dégat = 1
-      }
-      message.channel.send("> L'attaque réussie ! L'adversaire subit **" + dégat + "** points de dégats !")
-    }
-  }
-})
-
-bot.on('message', message => { //Attaque Griffe
-  if(message.content[0]+message.content[1]+message.content[2]+message.content[3]+message.content[4]+message.content[5]+message.content[6] === "/griffe"){
-    var probafail = Math.floor(Math.random() * Math.floor(100))
-    if(message.content.includes("pre")){
-      if(message.content.includes("pre-")){
-      probafail -= Math.floor(Math.random() * Math.floor(3)) + 3
-      }
-      if(message.content.includes("pre--")){
-        probafail -= Math.floor(Math.random() * Math.floor(5)) + 3
-      }
-      if(message.content.includes("pre---")){
-          probafail -= Math.floor(Math.random() * Math.floor(6)) + 4
-      }
-    }
-    if(probafail >= 90){
-      message.channel.send("> L'adversaire esquive votre attaque !")
-    }else{
-      var crit = Math.floor(Math.random() * Math.floor(100))
-      var dégat = Math.floor(Math.random() * Math.floor(2))
-      dégat += 3
-      if(message.content.includes("atk")){
-        if(message.content.includes("atk-")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk--")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk---")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk----")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk-----")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-    }
-    if(message.content.includes("atk")){
-      if(message.content.includes("atk+")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk+++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk++++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk+++++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-  }
-      if(crit <= 7){
-        dégat += Math.floor(Math.random() * Math.floor(4)) + 2
-        message.channel.send("> ***COUP CRITIQUE !!***")
-      }
-      if(message.content[8]+message.content[9] === "SE"){
-        dégat + Math.floor(Math.random() * Math.floor(5)) + 3
-        message.channel.send("> ***C'est super efficace !***")
-      }
-      if(message.content[8]+message.content[9] === "PE"){
-        dégat -= Math.floor(Math.random() * Math.floor(4)) + 3
-        message.channel.send("> *Ce n'est pas trés efficace...*")
-      }
-      if(dégat <= 0){
-        dégat = 1
-      }
-      message.channel.send("> L'attaque réussie ! L'adversaire subit **" + dégat + "** points de dégats !")
-    }
-  }
-})
-
-bot.on('message', message => { //Attaque Flammèche
-  if(message.content[0]+message.content[1]+message.content[2]+message.content[3]+message.content[4]+message.content[5]+message.content[6]+message.content[7]+message.content[8]+message.content[9]=== "/flammèche"){
-    var probafail = Math.floor(Math.random() * Math.floor(100))
-    if(message.content.includes("pre")){
-      if(message.content.includes("pre-")){
-      probafail -= Math.floor(Math.random() * Math.floor(3)) + 3
-      }
-      if(message.content.includes("pre--")){
-        probafail -= Math.floor(Math.random() * Math.floor(5)) + 3
-      }
-      if(message.content.includes("pre---")){
-          probafail -= Math.floor(Math.random() * Math.floor(6)) + 4
-      }
-    }
-    if(probafail >= 90){
-      message.channel.send("> L'adversaire esquive votre attaque !")
-    }else{
-      var crit = Math.floor(Math.random() * Math.floor(100))
-      var dégat = Math.floor(Math.random() * Math.floor(4))
-      dégat += 4
-      if(message.content.includes("atk")){
-        if(message.content.includes("atk-")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk--")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk---")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk----")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-        if(message.content.includes("atk-----")){
-          dégat -= Math.floor(Math.random() * Math.floor(3)) + 2
-        }
-    }
-    if(message.content.includes("atk")){
-      if(message.content.includes("atk+")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk+++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk++++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-      if(message.content.includes("atk+++++")){
-        dégat += Math.floor(Math.random() * Math.floor(3)) + 2
-      }
-  }
-      if(crit <= 7){
-        dégat += Math.floor(Math.random() * Math.floor(4)) + 3
-        message.channel.send("> ***COUP CRITIQUE !!***")
-      }
-      if(message.content[8]+message.content[9] === "SE"){
-        dégat + Math.floor(Math.random() * Math.floor(6)) + 4
-        message.channel.send("> ***C'est super efficace !***")
-      }
-      if(message.content[8]+message.content[9] === "PE"){
-        dégat -= Math.floor(Math.random() * Math.floor(6)) + 4
-        message.channel.send("> *Ce n'est pas trés efficace...*")
-      }
-      if(dégat <= 0){
-        dégat = 1
-      }
-      message.channel.send("> L'attaque réussie ! L'adversaire subit **" + dégat + "** points de dégats !")
-      var brul = Math.floor(Math.random() * Math.floor(100))
-      if(brul <= 10){
-        message.channel.send("> Votre adversaire est brulé !\n> (Il devra effectuer la commande ``/brul`` aprés chacunes de ses actions)")
-      }
-    }
-  }
 })
