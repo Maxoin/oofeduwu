@@ -45,4 +45,7 @@ bot.on('message', message => { //Iris
     if(message.author.id === "339848621908426752" && message.content === "!!sad"){
     message.channel.send("https://www.youtube.com/watch?v=D3scyfzqRU0")
     }
+    if(message.author.id === "339848621908426752" && message.content === "!!fight"){
+    message.channel.send("https://www.youtube.com/watch?v=AINcGl9l57o")
+    }
 })
