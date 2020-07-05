@@ -9,6 +9,9 @@ bot.on('ready',() => {
 bot.login(process.env.token);
 
 bot.on('message', message => { //Garen
+    if(message.author.id === "395678267207843872" && message.content === "!!list"){
+    message.channel.send("__~Garen~__-karma\n-combat1\n-combat2\n-combat3\n-sad**")
+    }
     if(message.author.id === "395678267207843872" && message.content === "!!karma"){
     message.channel.send("https://www.youtube.com/watch?v=2O7MmZ8geMw\n\n\n**Le Karma ? Je suis le Karma.**")
     }
@@ -27,7 +30,19 @@ bot.on('message', message => { //Garen
 })
 
 bot.on('message', message => { //Des
+    if(message.author.id === "161908030559092738" && message.content === "!!list"){
+    message.channel.send("__~Des~__-investigations1")
+    }
     if(message.author.id === "161908030559092738" && message.content === "!!investigations1"){
     message.channel.send("https://www.youtube.com/watch?v=AtgquM4JKR0")
+    }
+})
+
+bot.on('message', message => { //Iris
+    if(message.author.id === "339848621908426752" && message.content === "!!list"){
+    message.channel.send("__~Iris~__\n-sad")
+    }
+    if(message.author.id === "339848621908426752" && message.content === "!!sad"){
+    message.channel.send("https://www.youtube.com/watch?v=D3scyfzqRU0")
     }
 })
