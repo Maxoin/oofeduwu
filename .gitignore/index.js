@@ -25,7 +25,7 @@ bot.on('message', message => { //Garen
     message.channel.send("https://www.youtube.com/watch?v=aMxcPgEJkfA\n\n\n**Je m'occupe de lui et je reviens.**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!sad"){
-    message.channel.send("https://www.youtube.com/watch?v=uOhaJNUhPG4\n\n\n**Seul, je ne tiendrai pas le coup.**")
+    message.channel.send("https://www.youtube.com/watch?v=y1LIsrFdEuU\n\n\n**Seul, je ne tiendrai pas le coup.**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!berzerk"){
     message.channel.send("https://www.youtube.com/watch?v=uOhaJNUhPG4\n\n\n**C'est en levant la patte sur mes amis que tu as signé ton arret de mort.**")
