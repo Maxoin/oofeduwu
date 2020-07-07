@@ -10,25 +10,28 @@ bot.login(process.env.token);
 
 bot.on('message', message => { //Garen
     if(message.author.id === "395678267207843872" && message.content === "!!list"){
-    message.channel.send("__**~Garen~**__\n*Émotions :*\n``karma``, ``sad``\n*Combat :*\n``combat1``, ``combat2``, ``combat3``, ``berzerk``")
+    message.channel.send("__**~Garen~**__\n*Émotions :*\n``karma``, ``sad``\n*Combat :*\n``combat1``, ``combat2``, ``combat3``, ``combat4``, ``berzerk``")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!karma"){
     message.channel.send("https://www.youtube.com/watch?v=2O7MmZ8geMw\n\n\n**Si je suis la, c'est pour te faire payer ton erreur, qui a été de venir nous faire chier.**")
     }
-    if(message.author.id === "395678267207843872" && message.content === "!!combat3"){
+    if(message.author.id === "395678267207843872" && message.content === "!!combat4"){
     message.channel.send("https://www.youtube.com/watch?v=5ddOT_TJnKg\n\n\n**Puisse l'__Honneur__ guider mes pas dans ce combat d'anthologie.**")
     }
+    if(message.author.id === "395678267207843872" && message.content === "!!combat3"){
+    message.channel.send("https://www.youtube.com/watch?v=T-gzwTCFPLQ\n\n\n**Je donnerai tout pour répendre Justice.**")
+    }
     if(message.author.id === "395678267207843872" && message.content === "!!combat2"){
-    message.channel.send("https://www.youtube.com/watch?v=b52jaQQFPj8\n\n\n**Je donnerai tout pour répendre Justice.**")
+    message.channel.send("https://www.youtube.com/watch?v=8NfeEckQRM0\n\n\n**Je sent que celui-ci va être coriace..**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!combat1"){
-    message.channel.send("https://www.youtube.com/watch?v=aMxcPgEJkfA\n\n\n**Je m'occupe de lui et je reviens.**")
+    message.channel.send("https://www.youtube.com/watch?v=tnRqp_TAnVA\n\n\n**Je m'occupe de lui et je reviens.**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!sad"){
     message.channel.send("https://www.youtube.com/watch?v=y1LIsrFdEuU\n\n\n**Seul, je ne tiendrai pas le coup.**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!berzerk"){
-    message.channel.send("https://www.youtube.com/watch?v=uOhaJNUhPG4\n\n\n**C'est en levant la patte sur mes amis que tu as signé ton arret de mort.**")
+    message.channel.send("https://www.youtube.com/watch?v=36dL7YjCOsw\n\n\n**C'est en levant la patte sur mes amis que tu as signé ton arret de mort.**")
     }
 })
 
