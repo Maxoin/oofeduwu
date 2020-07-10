@@ -22,7 +22,7 @@ bot.on('message', message => { //Garen
     message.channel.send("https://www.youtube.com/watch?v=T-gzwTCFPLQ\n\n\n**Je donnerai tout pour répendre Justice.**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!combat2"){
-    message.channel.send("https://www.youtube.com/watch?v=8NfeEckQRM0\n\n\n**Je sent que celui-ci va être coriace..**")
+    message.channel.send("https://www.youtube.com/watch?v=Tjaf6i5PvGg\n\n\n**Je sent que celui-ci va être coriace..**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!combat1"){
     message.channel.send("https://www.youtube.com/watch?v=tnRqp_TAnVA\n\n\n**Je m'occupe de lui et je reviens.**")
