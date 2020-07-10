@@ -10,7 +10,7 @@ bot.login(process.env.token);
 
 bot.on('message', message => { //Garen
     if(message.author.id === "395678267207843872" && message.content === "!!list"){
-    message.channel.send("__**~Garen~**__\n*Émotions :*\n``karma``, ``sad``\n*Combat :*\n``combat1``, ``combat2``, ``combat3``, ``combat4``, ``berzerk``")
+    message.channel.send("__**~Garen~**__\n*Émotions :*\n``karma``, ``sad``, ``hmm``\n*Combat :*\n``combat1``, ``combat2``, ``combat3``, ``combat4``, ``berzerk``")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!karma"){
     message.channel.send("https://www.youtube.com/watch?v=2O7MmZ8geMw\n\n\n**Si je suis la, c'est pour te faire payer ton erreur, qui a été de venir nous faire chier.**")
@@ -32,6 +32,9 @@ bot.on('message', message => { //Garen
     }
     if(message.author.id === "395678267207843872" && message.content === "!!berzerk"){
     message.channel.send("https://www.youtube.com/watch?v=36dL7YjCOsw\n\n\n**C'est en levant la patte sur mes amis que tu as signé ton arret de mort.**")
+    }
+    if(message.author.id === "395678267207843872" && message.content === "!!hmm"){
+    message.channel.send("https://www.youtube.com/watch?v=tnrJyvVF7l4")
     }
 })
 
