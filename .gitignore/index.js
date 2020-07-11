@@ -13,10 +13,6 @@ var channelStockIdPersos = "731145079204610118";
 
 var dataBankPersos = [];
 
-var channelStockIdEff = "731201898698244198";
-
-var dataBankEff = [];
-
 //Declaration Fonction~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function read () { //lit le stockage discord et le met dans le stockage variable
@@ -38,19 +34,6 @@ function readPersos () { //lit le stockage discord et le met dans le stockage va
             .then(messages =>    
                 messages.forEach(function(valeur , clé) {
                     dataBankPersos.push(valeur.content.split(" * "));
-                })
-            )
-            .catch(console.error)
-        );
-    
-};
-
-function readEff () { //lit le stockage discord et le met dans le stockage variable
-    // met le contenu des messages dans dataBank
-        (bot.channels.get(channelStockIdEff).fetchMessages({ limit: 100 }) 
-            .then(messages =>    
-                messages.forEach(function(valeur , clé) {
-                    dataBankEff.push(valeur.content.split(" * "));
                 })
             )
             .catch(console.error)
@@ -114,7 +97,6 @@ bot.on('ready',() => {
     console.log('Bot Ready')
     read()
     readPersos()
-    readEff()
 })
 
 bot.login(process.env.token);
@@ -371,52 +353,180 @@ bot.on('message', message => {
         if(message.content.includes("defS-6") || message.content.includes("DefS-6") || message.content.includes("defs-6") || message.content.includes("Defs-6")){
             defS2 /= 4
         }
-        
-        for(var ie = 0; ie < dataBankEff.length; ie++){
-          if(dataBankEff[ie][0] === typep1){
-            var Acier = dataBankEff[ie][1]
-            var Combat = dataBankEff[ie][2]
-            var Dragon = dataBankEff[ie][3]
-            var Eau = dataBankEff[ie][4]
-            var Electrik  = dataBankEff[ie][5]
-            var Fée = dataBankEff[ie][6]
-            var Feu = dataBankEff[ie][7]
-            var Glace = dataBankEff[ie][8]
-            var Insecte = dataBankEff[ie][9]
-            var Normal = dataBankEff[ie][10]
-            var Plante = dataBankEff[ie][11]
-            var Poison = dataBankEff[ie][12]
-            var Psy = dataBankEff[ie][13]
-            var Roche = dataBankEff[ie][14]
-            var Sol = dataBankEff[ie][15]
-            var Spectre = dataBankEff[ie][16]
-            var Tenebre = dataBankEff[ie][17]
-            var Vol = dataBankEff[ie][18]
-          }
+        var typdegz = 1
+        if(type === "Acier"){
+            if(typep2 === "Fée" || typep2 === "Glace"|| typep2 === "Roche"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Eau" || typep2 === "Electrik" || typep2 === "Feu"){
+                typdegz = 0.5
+            }
         }
-        if(typep2 === "Acier"){var typdegz = Acier}
-        if(typep2 === "Combat"){var typdegz = Combat}
-        if(typep2 === "Dragon"){var typdegz = Dragon}
-        if(typep2 === "Eau"){var typdegz = Eau}
-        if(typep2 === "Electrik"){var typdegz = Electrik}
-        if(typep2 === "Fée"){var typdegz = Fée}
-        if(typep2 === "Feu"){var typdegz = Feu}
-        if(typep2 === "Glace"){var typdegz = Glace}
-        if(typep2 === "Insecte"){var typdegz = Insecte}
-        if(typep2 === "Normal"){var typdegz = Normal}
-        if(typep2 === "Plante"){var typdegz = Plante}
-        if(typep2 === "Poison"){var typdegz = Poison}
-        if(typep2 === "Psy"){var typdegz = Psy}
-        if(typep2 === "Roche"){var typdegz = Roche}
-        if(typep2 === "Sol"){var typdegz = Sol}
-        if(typep2 === "Spectre"){var typdegz = Spectre}
-        if(typep2 === "Tenebre"){var typdegz = Tenebre}
-        if(typep2 === "Vol"){var typdegz = Vol}
+        if(type === "Combat"){
+            if(typep2 === "Acier" || typep2 === "Glace" || typep2 === "Normal" || typep2 === "Roche" || typep2 === "Ténèbres"){
+                typdegz = 2
+            }
+            if(typep2 === "Fée" || typep2 === "Insecte" || typep2 === "Poison" || typep2 === "Psy" || typep2 === "Vol"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Spectre"){
+                typdegz = 0
+            }
+        }
+        if(type === "Dragon"){
+            if(typep2 === "Dragon"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Fée"){
+                typdegz = 0
+            }
+        }
+        if(type === "Eau"){
+            if(typep2 === "Feu" || typep2 === "Roche" || typep2 === "Sol"){
+                typdegz = 2
+            }
+            if(typep2 === "Dragon" || typep2 === "Eau" || typep2 === "Plante"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Electrik"){
+            if(typep2 === "Eau" || typep2 === "Vol"){
+                typdegz = 2
+            }
+            if(typep2 === "Dragon" || typep2 === "Electrik" || typep2 === "Plante"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Sol"){
+                typdegz = 0
+            }
+        }
+        if(type === "Fée"){
+            if(typep2 === "Combat" || typep2 === "Dragon" || typep2 === "Ténèbres"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Feu" || typep2 === "Poison"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Feu"){
+            if(typep2 === "Acier" || typep2 === "Glace" || typep2 === "Insecte" || typep2 === "Plante"){
+                typdegz = 2
+            }
+            if(typep2 === "Dragon" || typep2 === "Eau" || typep2 === "Feu" || typep2 === "Roche"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Glace"){
+            if(typep2 === "Dragon" || typep2 === "Plante" || typep2 === "Sol" || typep2 === "Vol"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Eau" || typep2 === "Feu" || typep2 === "Glace"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Insecte"){
+            if(typep2 === "Plante" || typep2 === "Psy" || typep2 === "Ténèbres"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Combat" || typep2 === "Fée" || typep2 === "Feu" || typep2 === "Poison" || typep2 === "Spectre" || typep2 === "Vol"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Normal"){
+            if(typep2 === "Acier" || typep2 === "Roche"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Spectre"){
+                typdegz = 0
+            }
+        }
+        if(type === "Plante"){
+            if(typep2 === "Dragon"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Fée"){
+                typdegz = 0
+            }
+        }
+        if(type === "Poison"){
+            if(typep2 === "Plante"){
+                typdegz = 2
+            }
+            if(typep2 === "Poison" || typep2 === "Roche" || typep2 === "Sol" || typep2 === "Spectre"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Acier"){
+                typdegz = 0
+            }
+        }
+        if(type === "Psy"){
+            if(typep2 === "Combat" || typep2 === "Poison"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Psy"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Ténèbres"){
+                typdegz = 0
+            }
+        }
+        if(type === "Roche"){
+            if(typep2 === "Feu" || typep2 === "Glace" || typep2 === "Insecte" || typep2 === "Vol"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Combat" || typep2 === "Sol"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Sol"){
+            if(typep2 === "Acier" || typep2 === "Electrik" || typep2 === "Feu" || typep2 === "Poison" || typep2 === "Roche"){
+                typdegz = 2
+            }
+            if(typep2 === "Insecte" || typep2 === "Plante"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Vol"){
+                typdegz = 0
+            }
+        }
+        if(type === "Spectre"){
+            if(typep2 === "Psy" || typep2 === "Spectre"){
+                typdegz = 2
+            }
+            if(typep2 === "Ténèbres"){
+                typdegz = 0.5
+            }
+            if(typep2 === "Normal"){
+                typdegz = 0
+            }
+        }
+        if(type === "Ténèbres"){
+            if(typep2 === "Psy" || typep2 === "Spectre"){
+                typdegz = 2
+            }
+            if(typep2 === "Combat" || typep2 === "Fée" || typep2 === "Ténèbres"){
+                typdegz = 0.5
+            }
+        }
+        if(type === "Vol"){
+            if(typep2 === "Combat" || typep2 === "Insecte" || typep2 === "Plante"){
+                typdegz = 2
+            }
+            if(typep2 === "Acier" || typep2 === "Electrik" || typep2 === "Roche"){
+                typdegz = 0.5
+            }
+        }
         if(type === typep1){stab = 1.5}
         if(spec === "Physique"){var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1}
         if(spec === "Special"){var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1}
         var crit = Math.floor(Math.random() * Math.floor(20))
-        console.log(crit + " & " + typdegz)
+        console.log(type + " & " + typdegz)
         if(crit === 13){
             degz *= 2
             message.channel.send("**Coup Critique !**")
@@ -427,9 +537,12 @@ bot.on('message', message => {
 
 bot.on('message', message => {
     if(message.content.includes("!!read")){
+        dataBank = []
+        dataBankPersos = []
+        read()
+        readPersos()
         console.log(dataBank)
         console.log(dataBankPersos)
-        console.log(dataBankEff)
     }
 })
 
