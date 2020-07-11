@@ -413,8 +413,8 @@ bot.on('message', message => {
         if(typep2 === "Tenebre"){var typdegz = Tenebre}
         if(typep2 === "Vol"){var typdegz = Vol}
         if(type === typep1){stab = 1.5}
-        if(spec === "Physique"){var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1}
-        if(spec === "Special"){var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1}
+        if(spec === "Physique"){var degz = (((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab))}
+        if(spec === "Special"){var degz = (((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab))}
         var crit = Math.floor(Math.random() * Math.floor(20))
         console.log(crit + " & " + typdegz)
         if(crit === 13){
