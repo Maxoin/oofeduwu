@@ -353,6 +353,22 @@ bot.on('message', message => {
         if(message.content.includes("defS-6") || message.content.includes("DefS-6") || message.content.includes("defs-6") || message.content.includes("Defs-6")){
             defS2 /= 4
         }
+        var crit = Math.floor(Math.random() * Math.floor(100))
+        if(message.content.includes("Crit+1") || message.content.includes("crit+1")){
+            crit += 10
+        }
+        if(message.content.includes("Crit+2") || message.content.includes("crit+2")){
+            crit += 15
+        }
+        if(message.content.includes("Crit+3") || message.content.includes("crit+3")){
+            crit += 20
+        }
+        if(message.content.includes("Crit+4") || message.content.includes("crit+4")){
+            crit += 25
+        }
+        if(message.content.includes("Crit+5") || message.content.includes("crit+5")){
+            crit += 30
+        }
         var typdegz = 1
         if(type === "Acier"){
             if(typep2 === "Fée" || typep2 === "Glace"|| typep2 === "Roche"){
@@ -525,9 +541,8 @@ bot.on('message', message => {
         if(type === typep1){stab = 1.5}
         if(spec === "Physique"){var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1}
         if(spec === "Special"){var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1}
-        var crit = Math.floor(Math.random() * Math.floor(20))
         console.log(type + " & " + typdegz)
-        if(crit === 13){
+        if(crit >=== 80){
             degz *= 2
             message.channel.send("**Coup Critique !**")
         }
