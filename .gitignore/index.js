@@ -542,7 +542,7 @@ bot.on('message', message => {
         if(spec === "Physique"){var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1}
         if(spec === "Special"){var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1}
         console.log(type + " & " + typdegz)
-        if(crit >=== 80){
+        if(crit >= 80){
             degz *= 2
             message.channel.send("**Coup Critique !**")
         }
