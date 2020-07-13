@@ -175,11 +175,14 @@ bot.on('message', message => {
         var attaque = message.content.split(" ")[1]
         var pkmn1 = message.content.split(" ")[2]
         var pkmn2 = message.content.split(" ")[3]
+        var precp = 100
+        var esqui = 100
         for(var i = 0; i < dataBank.length; i++){
           if(dataBank[i][0] === attaque){
             var type = dataBank[i][1]
             var puis = dataBank[i][2]
             var spec = dataBank[i][3]
+            var prec = dataBank[i][4]
           }
         }
         for(var ip = 0; ip < dataBankPersos.length; ip++){
@@ -369,6 +372,42 @@ bot.on('message', message => {
         if(message.content.includes("Crit+5") || message.content.includes("crit+5")){
             crit += 30
         }
+        if(message.content.includes("Esq+1") || message.content.includes("esq+1")){
+            esqui = 133
+        }
+        if(message.content.includes("Esq+2") || message.content.includes("esq+2")){
+            esqui = 167
+        }
+        if(message.content.includes("Esq+3") || message.content.includes("esq+3")){
+            esqui = 200
+        }
+        if(message.content.includes("Esq-1") || message.content.includes("esq-1")){
+            esqui = 75
+        }
+        if(message.content.includes("Esq-2") || message.content.includes("esq-2")){
+            esqui = 60
+        }
+        if(message.content.includes("Esq-3") || message.content.includes("esq-3")){
+            esqui = 50
+        }
+        if(message.content.includes("Pre+1") || message.content.includes("pre+1")){
+            precp = 133
+        }
+        if(message.content.includes("Pre+2") || message.content.includes("pre+2")){
+            precp = 167
+        }
+        if(message.content.includes("Pre+3") || message.content.includes("pre+3")){
+            precp = 200
+        }
+        if(message.content.includes("Pre-1") || message.content.includes("pre-1")){
+            precp = 75
+        }
+        if(message.content.includes("Pre-2") || message.content.includes("pre-2")){
+            precp = 60
+        }
+        if(message.content.includes("Pre-3") || message.content.includes("pre-3")){
+            precp = 50
+        }
         var typdegz = 1
         if(type === "Acier"){
             if(typep2 === "Fée" || typep2 === "Glace"|| typep2 === "Roche"){
@@ -542,11 +581,19 @@ bot.on('message', message => {
         if(spec === "Physique"){var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1}
         if(spec === "Special"){var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1}
         console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
-        if(crit >= 80){
+        var hit = (precp / esqui) * prec
+        var probahit = Math.floor(Math.random() * Math.floor(100))
+        console.log(hit + "/" + probahit)
+        if(crit >= 80 && (probahit <= hit || probahit === hit)){
             degz *= 2
             message.channel.send("**Coup Critique !**")
+        }   
+        if(probahit <= hit || probahit === hit){
+            message.channel.send("L'attaque fait **" + degz + "** points de dégàts !")
         }
-        message.channel.send("L'attaque fait **" + degz + "** points de dégàts !")
+        if(probahit >= hit){
+            message.channel.send(pkmn1 + " rate son attaque !")
+        }
     }
 })
 
@@ -560,4 +607,3 @@ bot.on('message', message => {
         console.log(dataBankPersos)
     }
 })
-
