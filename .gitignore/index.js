@@ -118,7 +118,7 @@ bot.on('message', message => { //Garen
     message.channel.send("https://www.youtube.com/watch?v=Tjaf6i5PvGg\n\n\n**Je sent que celui-ci va être coriace..**")
     }
     if(message.author.id === "395678267207843872" && message.content === "!!combat1"){
-    message.channel.send("https://www.youtube.com/watch?v=tnRqp_TAnVA\n\n\n**Je m'occupe de lui et je reviens.**")
+    message.channel.send("https://www.youtube.com/watch?v=tnRqp_TAnVA\n\n\n**Je m'occupe de lui et je reviens.**") 
     }
     if(message.author.id === "395678267207843872" && message.content === "!!sad"){
     message.channel.send("https://www.youtube.com/watch?v=y1LIsrFdEuU")
@@ -200,7 +200,7 @@ bot.on('message', message => {
         }
         for(var ipb = 0; ipb < dataBankPersos.length; ipb++){
           if(dataBankPersos[ipb][0] === pkmn2){
-            var nom1 = dataBankPersos[ipb][0]
+            var nom2 = dataBankPersos[ipb][0]
             var niveau2 = dataBankPersos[ipb][1]
             var typep2 = dataBankPersos[ipb][2]
             var pv2 = dataBankPersos[ipb][3]
@@ -617,6 +617,7 @@ bot.on('message', message => {
         readPersos()
         console.log(dataBank)
         console.log(dataBankPersos)
-        message.channel.send("Mise à jour effectuée, " + message.author.username + " !")
     }
 })
+
+
