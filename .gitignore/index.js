@@ -600,7 +600,7 @@ bot.on('message', message => {
         if(probahit <= hit || probahit === hit){
             message.channel.send("L'attaque fait **" + degz + "** points de dégàts !")
             if(testvit <= vit1 || testvit === vit2){
-            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour" + nom2 + " !")
+            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour " + nom2 + " !")
             }
         }
         if(probahit >= hit){
