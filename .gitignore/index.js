@@ -170,7 +170,7 @@ bot.on('message', message => { //memo
   })
 
 bot.on('message', message => {
-    if(message.content.includes("!!battle ")){
+    if(message.content.includes("!!atk ")){
         var stab = 1
         var attaque = message.content.split(" ")[1]
         var pkmn1 = message.content.split(" ")[2]
