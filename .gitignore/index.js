@@ -617,5 +617,6 @@ bot.on('message', message => {
         readPersos()
         console.log(dataBank)
         console.log(dataBankPersos)
+        message.channel.send("Mise à jour effectuée, " + message.author.username + " !")
     }
 })
