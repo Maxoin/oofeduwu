@@ -170,7 +170,7 @@ bot.on('message', message => { //memo
   })
 
 bot.on('message', message => {
-    if(message.content.includes("!!atk ")){
+    if(message.content.includes("!!battle ")){
         var stab = 1
         var attaque = message.content.split(" ")[1]
         var pkmn1 = message.content.split(" ")[2]
@@ -187,6 +187,7 @@ bot.on('message', message => {
         }
         for(var ip = 0; ip < dataBankPersos.length; ip++){
           if(dataBankPersos[ip][0] === pkmn1){
+            var nom1 = dataBankPersos[ip][0]
             var niveau1 = dataBankPersos[ip][1]
             var typep1 = dataBankPersos[ip][2]
             var pv1 = dataBankPersos[ip][3]
@@ -199,6 +200,7 @@ bot.on('message', message => {
         }
         for(var ipb = 0; ipb < dataBankPersos.length; ipb++){
           if(dataBankPersos[ipb][0] === pkmn2){
+            var nom1 = dataBankPersos[ipb][0]
             var niveau2 = dataBankPersos[ipb][1]
             var typep2 = dataBankPersos[ipb][2]
             var pv2 = dataBankPersos[ipb][3]
@@ -578,8 +580,14 @@ bot.on('message', message => {
             }
         }
         if(type === typep1){stab = 1.5}
-        if(spec === "Physique"){var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1}
-        if(spec === "Special"){var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1}
+        if(spec === "Physique"){
+            var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+            var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+        }
+        if(spec === "Special"){
+            var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1
+            var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+        }
         console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
         var hit = (precp / esqui) * prec
         var probahit = Math.floor(Math.random() * Math.floor(100))
@@ -588,8 +596,12 @@ bot.on('message', message => {
             degz *= 2
             message.channel.send("**Coup Critique !**")
         }   
+        var testvit = vit2 * 2
         if(probahit <= hit || probahit === hit){
             message.channel.send("L'attaque fait **" + degz + "** points de dégàts !")
+            if(testvit >= vit1 || testvit === vit2){
+            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour" + nom2 + " !")
+            }
         }
         if(probahit >= hit){
             message.channel.send(pkmn1 + " rate son attaque !")
