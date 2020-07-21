@@ -99,7 +99,7 @@ bot.on('ready',() => {
     readPersos()
 })
 
-bot.login(process.env.token);
+bot.login(process.env.tokkk);
 
 bot.on('message', message => { //Garen
     if(message.author.id === "395678267207843872" && message.content === "!!list"){
