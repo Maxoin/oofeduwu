@@ -17,7 +17,7 @@ var dataBankPersos = [];
 
 function read () { //lit le stockage discord et le met dans le stockage variable
     // met le contenu des messages dans dataBank
-        (bot.channels.get(channelStockId).fetchMessages
+        (bot.channels.get(channelStockId).fetchMessages( {limit : 100} )
             .then(messages =>    
                 messages.forEach(function(valeur , clé) {
                     dataBank.push(valeur.content.split(" * "));
