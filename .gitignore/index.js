@@ -635,6 +635,7 @@ bot.on('message', message => {
     if(message.content === "!!para"){
         var rollpara = Math.floor(Math.random() * Math.floor(100))
         var probapara = 20
+        console.log(rollpara)
         if(rollpara <= probapara || rollpara === probapara){
             message.channel.send("Le pokemon est paralysé !")
         }
