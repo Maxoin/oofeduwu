@@ -610,7 +610,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
-    if(message.content.includes("!!read")){
+    if(message.content === "!!read"){
         dataBank = []
         dataBankPersos = []
         read()
@@ -619,5 +619,3 @@ bot.on('message', message => {
         console.log(dataBankPersos)
     }
 })
-
-
