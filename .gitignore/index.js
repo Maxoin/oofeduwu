@@ -410,6 +410,9 @@ bot.on('message', message => {
         if(message.content.includes("Pre-3") || message.content.includes("pre-3")){
             precp = 50
         }
+        if(message.content.includes("brul") || message.content.includes("Brul")){
+            attak1 /= 2
+        }
         var typdegz = 1
         if(type === "Acier"){
             if(typep2 === "Fée" || typep2 === "Glace"|| typep2 === "Roche"){
@@ -617,5 +620,26 @@ bot.on('message', message => {
         readPersos()
         console.log(dataBank)
         console.log(dataBankPersos)
+    }
+})
+
+bot.on('message', message => {
+    if(message.content === "!!sommeil"){
+        var tourdodo = Math.floor(Math.random() * Math.floor(4))
+        tourdodo += 1
+        message.channel.send("Le pokemon est endormis pendant " + tourdodo + " tours !")
+        }
+})
+
+bot.on('message', message => {
+    if(message.content === "!!para"){
+        var rollpara = Math.floor(Math.random() * Math.floor(100))
+        var probapara = 20
+        if(rollpara <= probapara || rollpara === probapara){
+            message.channel.send("Le pokemon est paralysé !")
+        }
+        if(rollpara >= probapara){
+            message.channel.send("Aucun effet de statut.")
+        }
     }
 })
