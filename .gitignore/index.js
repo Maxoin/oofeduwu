@@ -17,7 +17,7 @@ var dataBankPersos = [];
 
 function read () { //lit le stockage discord et le met dans le stockage variable
     // met le contenu des messages dans dataBank
-        (bot.channels.get(channelStockId).fetchMessages( {limit : 100} )
+        (bot.channels.get(channelStockId).fetchMessages()
             .then(messages =>    
                 messages.forEach(function(valeur , clé) {
                     dataBank.push(valeur.content.split(" * "));
@@ -159,7 +159,9 @@ bot.on('message', message => { //memo
         .setDescription("Petit post-it pour pas oublier comment que Griffin fonctionne")
         .addField("Prefix :", "!!", true)
         .addField("La commande d'attaque", "!!atk [nom_de_l'attaque] [Nom_de_l'attaquant] [Nom_du_defenseur] [(Optionnel)Variation de statut]")
-        .addField("Variation de stats", "[Atk/Def/AtkS/DefS][+/-][1/2/3/4/5/6]")
+        .addField("Variation de stats", "[Atk/Def/AtkS/DefS/Crit/Pre/Esq][+/-][1/2/3/4/5/6]")
+        .addField("Statut", "A ajouter à la commande d'attaque : [Brul]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
+        .addField("Talents", "A ajouter à la commande d'attaque (dans les situations qui l'exiges) : [Rideau_neige] - [Brasier] - [Torrent] - [Normalise] - [Adaptabilité]\nCommandes à part : !!statik - !!Joli Sourire")
         .addBlankField()
         .addField("!!!", "N'effectuer que des commandes avec les attaques offensives")  
         .setColor("#c40000")
@@ -413,6 +415,25 @@ bot.on('message', message => {
         if(message.content.includes("brul") || message.content.includes("Brul")){
             attak1 /= 2
         }
+        if(type === typep1){stab = 1.5}
+///////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////TALENTS////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+        if(message.content.includes("rideau_neige") || message.content.includes("Rideau_neige")|| message.content.includes("Rideau_Neige")){
+            esqui /= 1.2
+        } 
+        if(message.content.includes("brasier") || message.content.includes("Brasier" && type === "Feu")){
+            puis *= 1.5
+        }
+        if(message.content.includes("torrent") || message.content.includes("Torrent" && type === "Eau")){
+            puis *= 1.5
+        }
+        if(message.content.includes("normalise") || message.content.includes("Normalise")){
+            puis *= 1.2
+        }
+        if(message.content.includes("adaptabilité") || message.content.includes("Adaptabilité")){
+            stab = 2
+        }
         var typdegz = 1
         if(type === "Acier"){
             if(typep2 === "Fée" || typep2 === "Glace"|| typep2 === "Roche"){
@@ -582,7 +603,6 @@ bot.on('message', message => {
                 typdegz = 0.5
             }
         }
-        if(type === typep1){stab = 1.5}
         if(spec === "Physique"){
             var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
             var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
@@ -594,7 +614,7 @@ bot.on('message', message => {
         console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
         var hit = (precp / esqui) * prec
         var probahit = Math.floor(Math.random() * Math.floor(100))
-        console.log(hit + "/" + probahit)
+        console.log(probahit + "/" + hit)
         if(crit >= 80 && (probahit <= hit || probahit === hit)){
             degz *= 2
             message.channel.send("**Coup Critique !**")
@@ -634,13 +654,56 @@ bot.on('message', message => {
 bot.on('message', message => {
     if(message.content === "!!para"){
         var rollpara = Math.floor(Math.random() * Math.floor(100))
-        var probapara = 20
+        var probapara = 25
         console.log(rollpara)
         if(rollpara <= probapara || rollpara === probapara){
-            message.channel.send("Le pokemon est paralysé !")
+            message.channel.send("Le pokemon est paralysé et ne peux pas attaquer !")
         }
         if(rollpara >= probapara){
-            message.channel.send("Aucun effet de statut.")
+            message.channel.send("Le pokemon réussis à attaquer !")
         }
     }
 })
+
+bot.on('message', message => {
+    if(message.content === "!!statik"){
+        var rollstatik = Math.floor(Math.random() * Math.floor(100))
+        var probastatik = 30
+        console.log(rollstatik)
+        if(rollstatik <= probastatik || rollstatik === probastatik){
+            message.channel.send("Le pokemon est paralysé !")
+        }
+        if(rollstatik >= probastatik){
+            message.channel.send("Le pokemon reste de marbre.")
+        }
+    }
+})
+
+bot.on('message', message => {
+    if(message.content.includes("!!poison ")){
+        var pkmnpoison = message.content.split(" ")[1]
+        for(var ipoi = 0; ipoi < dataBankPersos.length; ipoi++){
+          if(dataBankPersos[ipoi][0] === pkmnpoison){
+            var nompoison1 = dataBankPersos[ipoi][0]
+            var pvpokemonp = dataBankPersos[ipoi][3]
+          }
+        }
+        var pvpkmnpoison = Math.round((pvpokemonp *= 0.125) * 1) / 1
+        message.channel.send(nompoison1 + " subits " + pvpkmnpoison + " points dégats à cause du poison.")
+    }
+})
+
+bot.on('message', message => {
+    if(message.content === "!!Joli Sourire"){
+        var rolllove = Math.floor(Math.random() * Math.floor(100))
+        var probalove = 30
+        console.log(rolllove)
+        if(rolllove <= probalove || rolllove === probalove){
+            message.channel.send("Le pokemon est amoureux !")
+        }
+        if(rolllove >= probalove){
+            message.channel.send("Le pokemon reste de marbre.")
+        }
+    }
+})
+
