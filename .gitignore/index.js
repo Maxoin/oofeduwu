@@ -158,7 +158,8 @@ bot.on('message', message => { //memo
         .setTitle("**Koman ssamarsh ?**")
         .setDescription("Petit post-it pour pas oublier comment que Griffin fonctionne")
         .addField("Prefix :", "!!", true)
-        .addField("La commande d'attaque", "!!atk [nom_de_l'attaque] [Nom_de_l'attaquant] [Nom_du_defenseur] [(Optionnel)Variation de statut]")
+        .addField("La commande de priorité", "!!prio [Les] [Pokemon] [Du] [Combat] (jusqu'à 32)")
+        .addField("La commande d'attaque", "!!atk [nom_de_l'attaque] [Nom_de_l'attaquant] [Nom_du_defenseur] [(Optionnel)Variation de stats]")
         .addField("Variation de stats", "[Atk/Def/AtkS/DefS/Crit/Pre/Esq][+/-][1/2/3/4/5/6]")
         .addField("Statut", "A ajouter à la commande d'attaque : [Brul]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
         .addField("Talents", "A ajouter à la commande d'attaque (dans les situations qui l'exiges) : [Rideau_neige] - [Brasier] - [Torrent] - [Normalise] - [Adaptabilité]\nCommandes à part : !!statik - !!Joli Sourire")
@@ -708,3 +709,244 @@ bot.on('message', message => {
     }
 })
 
+bot.on('message', message => {
+  if(message.content.includes("!!prio")){
+    var pkmnprio1 = message.content.split(" ")[1]
+    var pkmnprio2 = message.content.split(" ")[2]
+    var pkmnprio3 = message.content.split(" ")[3]
+    var pkmnprio4 = message.content.split(" ")[4]
+    var pkmnprio5 = message.content.split(" ")[5]
+    var pkmnprio6 = message.content.split(" ")[6]
+    var pkmnprio7 = message.content.split(" ")[7]
+    var pkmnprio8 = message.content.split(" ")[8]
+    var pkmnprio9 = message.content.split(" ")[9]
+    var pkmnprio10 = message.content.split(" ")[10]
+    var pkmnprio11 = message.content.split(" ")[11]
+    var pkmnprio12 = message.content.split(" ")[12]
+    var pkmnprio13 = message.content.split(" ")[13]
+    var pkmnprio14 = message.content.split(" ")[14]
+    var pkmnprio15 = message.content.split(" ")[15]
+    var pkmnprio16 = message.content.split(" ")[16]
+    var pkmnprio17 = message.content.split(" ")[17]
+    var pkmnprio18 = message.content.split(" ")[18]
+    var pkmnprio19 = message.content.split(" ")[19]
+    var pkmnprio20 = message.content.split(" ")[20]
+    var pkmnprio21 = message.content.split(" ")[21]
+    var pkmnprio22 = message.content.split(" ")[22]
+    var pkmnprio23 = message.content.split(" ")[23]
+    var pkmnprio24 = message.content.split(" ")[24]
+    var pkmnprio25 = message.content.split(" ")[25]
+    var pkmnprio26 = message.content.split(" ")[26]
+    var pkmnprio27 = message.content.split(" ")[27]
+    var pkmnprio28 = message.content.split(" ")[28]
+    var pkmnprio29 = message.content.split(" ")[29]
+    var pkmnprio30 = message.content.split(" ")[30]
+    var pkmnprio31 = message.content.split(" ")[31]
+    var pkmnprio32 = message.content.split(" ")[32]
+    for(var iprioa = 0; iprioa < dataBankPersos.length; iprioa++){
+      if(dataBankPersos[iprioa][0] === pkmnprio1){
+        var nom1 = dataBankPersos[iprioa][0]
+        var vit1 = dataBankPersos[iprioa][8]
+    }
+  }
+    for(var ipriob = 0; ipriob < dataBankPersos.length; ipriob++){
+      if(dataBankPersos[ipriob][0] === pkmnprio2){
+        var nom2 = dataBankPersos[ipriob][0]
+        var vit2 = dataBankPersos[ipriob][8]
+      }
+    }
+    for(var iprioc = 0; iprioc < dataBankPersos.length; iprioc++){
+      if(dataBankPersos[iprioc][0] === pkmnprio3){
+        var nom3 = dataBankPersos[iprioc][0]
+        var vit3 = dataBankPersos[iprioc][8]
+      }
+    }
+    for(var ipriod = 0; ipriod < dataBankPersos.length; ipriod++){
+      if(dataBankPersos[ipriod][0] === pkmnprio4){
+        var nom4 = dataBankPersos[ipriod][0]
+        var vit4 = dataBankPersos[ipriod][8]
+      }
+    }
+    for(var iprioe = 0; iprioe < dataBankPersos.length; iprioe++){
+      if(dataBankPersos[iprioe][0] === pkmnprio5){
+        var nom5 = dataBankPersos[iprioe][0]
+        var vit5 = dataBankPersos[iprioe][8]
+      }
+    }
+    for(var ipriof = 0; ipriof < dataBankPersos.length; ipriof++){
+      if(dataBankPersos[ipriof][0] === pkmnprio6){
+        var nom6 = dataBankPersos[ipriof][0]
+        var vit6 = dataBankPersos[ipriof][8]
+      }
+    }
+    for(var ipriog = 0; ipriog < dataBankPersos.length; ipriog++){
+      if(dataBankPersos[ipriog][0] === pkmnprio7){
+        var nom7 = dataBankPersos[ipriog][0]
+        var vit7 = dataBankPersos[ipriog][8]
+      }
+    }
+    for(var iprioh = 0; iprioh < dataBankPersos.length; iprioh++){
+      if(dataBankPersos[iprioh][0] === pkmnprio8){
+        var nom8 = dataBankPersos[iprioh][0]
+        var vit8 = dataBankPersos[iprioh][8]
+      }
+    }
+    for(var iprioi = 0; iprioi < dataBankPersos.length; iprioi++){
+      if(dataBankPersos[iprioi][0] === pkmnprio9){
+        var nom9 = dataBankPersos[iprioi][0]
+        var vit9 = dataBankPersos[iprioi][8]
+      }
+    }
+    for(var iprioj = 0; iprioj < dataBankPersos.length; iprioj++){
+      if(dataBankPersos[iprioj][0] === pkmnprio10){
+        var nom10 = dataBankPersos[iprioj][0]
+        var vit10 = dataBankPersos[iprioj][8]
+      }
+    }
+    for(var ipriok = 0; ipriok < dataBankPersos.length; ipriok++){
+      if(dataBankPersos[ipriok][0] === pkmnprio11){
+        var nom11 = dataBankPersos[ipriok][0]
+        var vit11 = dataBankPersos[ipriok][8]
+      }
+    }
+    for(var ipriol = 0; ipriol < dataBankPersos.length; ipriol++){
+      if(dataBankPersos[ipriol][0] === pkmnprio12){
+        var nom12 = dataBankPersos[ipriol][0]
+        var vit12 = dataBankPersos[ipriol][8]
+      }
+    }
+    for(var ipriom = 0; ipriom < dataBankPersos.length; ipriom++){
+      if(dataBankPersos[ipriom][0] === pkmnprio13){
+        var nom13 = dataBankPersos[ipriom][0]
+        var vit13 = dataBankPersos[ipriom][8]
+      }
+    }
+    for(var iprion = 0; iprion < dataBankPersos.length; iprion++){
+      if(dataBankPersos[iprion][0] === pkmnprio14){
+        var nom14 = dataBankPersos[iprion][0]
+        var vit14 = dataBankPersos[iprion][8]
+      }
+    }
+    for(var iprioo = 0; iprioo < dataBankPersos.length; iprioo++){
+      if(dataBankPersos[iprioo][0] === pkmnprio15){
+        var nom15 = dataBankPersos[iprioo][0]
+        var vit15 = dataBankPersos[iprioo][8]
+      }
+    }
+    for(var ipriop = 0; ipriop < dataBankPersos.length; ipriop++){
+      if(dataBankPersos[ipriop][0] === pkmnprio16){
+        var nom16 = dataBankPersos[ipriop][0]
+        var vit16 = dataBankPersos[ipriop][8]
+      }
+    }
+    for(var iprioq = 0; iprioq < dataBankPersos.length; iprioq++){
+      if(dataBankPersos[iprioq][0] === pkmnprio17){
+        var nom17 = dataBankPersos[iprioq][0]
+        var vit17 = dataBankPersos[iprioq][8]
+      }
+    }
+    for(var iprior = 0; iprior < dataBankPersos.length; iprior++){
+      if(dataBankPersos[iprior][0] === pkmnprio18){
+        var nom18 = dataBankPersos[iprior][0]
+        var vit18 = dataBankPersos[iprior][8]
+      }
+    }
+    for(var iprios = 0; iprios < dataBankPersos.length; iprios++){
+      if(dataBankPersos[iprios][0] === pkmnprio19){
+        var nom19 = dataBankPersos[iprios][0]
+        var vit19 = dataBankPersos[iprios][8]
+      }
+    }
+    for(var ipriot = 0; ipriot < dataBankPersos.length; ipriot++){
+      if(dataBankPersos[ipriot][0] === pkmnprio20){
+        var nom20 = dataBankPersos[ipriot][0]
+        var vit20 = dataBankPersos[ipriot][8]
+      }
+    }
+    for(var ipriou = 0; ipriou < dataBankPersos.length; ipriou++){
+      if(dataBankPersos[ipriou][0] === pkmnprio21){
+        var nom21 = dataBankPersos[ipriou][0]
+        var vit21 = dataBankPersos[ipriou][8]
+      }
+    }
+    for(var ipriov = 0; ipriov < dataBankPersos.length; ipriov++){
+      if(dataBankPersos[ipriov][0] === pkmnprio22){
+        var nom22 = dataBankPersos[ipriov][0]
+        var vit22 = dataBankPersos[ipriov][8]
+      }
+    }
+    for(var ipriow = 0; ipriow < dataBankPersos.length; ipriow++){
+      if(dataBankPersos[ipriow][0] === pkmnprio23){
+        var nom23 = dataBankPersos[ipriow][0]
+        var vit23 = dataBankPersos[ipriow][8]
+      }
+    }
+    for(var ipriox = 0; ipriox < dataBankPersos.length; ipriox++){
+      if(dataBankPersos[ipriox][0] === pkmnprio24){
+        var nom24 = dataBankPersos[ipriox][0]
+        var vit24 = dataBankPersos[ipriox][8]
+      }
+    }
+    for(var iprioy = 0; iprioy < dataBankPersos.length; iprioy++){
+      if(dataBankPersos[iprioy][0] === pkmnprio25){
+        var nom25 = dataBankPersos[iprioy][0]
+        var vit25 = dataBankPersos[iprioy][8]
+      }
+    }
+    for(var iprioz = 0; iprioz < dataBankPersos.length; iprioz++){
+      if(dataBankPersos[iprioz][0] === pkmnprio26){
+        var nom26 = dataBankPersos[iprioz][0]
+        var vit26 = dataBankPersos[iprioz][8]
+      }
+    }
+    for(var iprioaa = 0; iprioaa < dataBankPersos.length; iprioaa++){
+      if(dataBankPersos[iprioaa][0] === pkmnprio27){
+        var nom27 = dataBankPersos[iprioaa][0]
+        var vit27 = dataBankPersos[iprioaa][8]
+      }
+    }
+    for(var iprioab = 0; iprioab < dataBankPersos.length; iprioab++){
+      if(dataBankPersos[iprioab][0] === pkmnprio28){
+        var nom28 = dataBankPersos[iprioab][0]
+        var vit28 = dataBankPersos[iprioab][8]
+      }
+    }
+    for(var iprioac = 0; iprioac < dataBankPersos.length; iprioac++){
+      if(dataBankPersos[iprioac][0] === pkmnprio29){
+        var nom29 = dataBankPersos[iprioac][0]
+        var vit29 = dataBankPersos[iprioac][8]
+      }
+    }
+    for(var iprioad = 0; iprioad < dataBankPersos.length; iprioad++){
+      if(dataBankPersos[iprioad][0] === pkmnprio30){
+        var nom30 = dataBankPersos[iprioad][0]
+        var vit30 = dataBankPersos[iprioad][8]
+      }
+    }
+    for(var iprioae = 0; iprioae < dataBankPersos.length; iprioae++){
+      if(dataBankPersos[iprioae][0] === pkmnprio31){
+        var nom31 = dataBankPersos[iprioae][0]
+        var vit31 = dataBankPersos[iprioae][8]
+      }
+    }
+    for(var iprioaf = 0; iprioaf < dataBankPersos.length; iprioaf++){
+      if(dataBankPersos[iprioaf][0] === pkmnprio32){
+        var nom32 = dataBankPersos[iprioaf][0]
+        var vit32 = dataBankPersos[iprioaf][8]
+      }
+    }
+    var testcroissant = [vit1 + " - " + nom1, vit2+ " - " + nom2, vit3+ " - " + nom3, vit4+ " - " + nom4, vit5+ " - " + nom5, vit6+ " - " + nom6, vit7+ " - " + nom7, vit8+ " - " + nom8, vit9+ " - " + nom9, vit10+ " - " + nom10, vit11+ " - " + nom11, vit12+ " - " + nom12, vit13+ " - " + nom13, vit14+ " - " + nom14, vit15+ " - " + nom15, vit16+ " - " + nom16, vit17+ " - " + nom17, vit18+ " - " + nom18, vit19+ " - " + nom19, vit20+ " - " + nom20, vit21+ " - " + nom21, vit22+ " - " + nom22, vit23+ " - " + nom23, vit24+ " - " + nom24, vit25+ " - " + nom25, vit26+ " - " + nom26, vit27+ " - " + nom27, vit28+ " - " + nom28, vit29+ " - " + nom29, vit30+ " - " + nom30, vit31+ " - " + nom31, vit32+ " - " + nom32]
+    testcroissant.sort()
+    console.log(testcroissant)
+    var msgprio = []
+    for(var iprio = 0; iprio < (message.content.split(" ").length-1); iprio++){
+        msgprio.push(testcroissant[iprio])
+      }
+    msgprio.reverse()
+    var messagefinal = ""
+    for(var ipriofinal = 0; ipriofinal < msgprio.length; ipriofinal++){
+      messagefinal += ("> " + msgprio[ipriofinal] + "\n")
+    }
+    message.channel.send(messagefinal)
+  }
+})
