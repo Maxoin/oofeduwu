@@ -1203,7 +1203,7 @@ bot.on('message', message => { //points de vies
   })    
 
 bot.on('message', message => { // !!logz
-  if(message.content.includes(' * ')){
+  if(message.content.includes(' * ') && message.author.id === "395678267207843872"){
     message.channel.send(message.content)
     message.delete()
   }
