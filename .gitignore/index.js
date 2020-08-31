@@ -1205,5 +1205,6 @@ bot.on('message', message => { //points de vies
 bot.on('message', message => { // !!logz
   if(message.content.includes(' * ')){
     message.channel.send(message.content)
+    message.delete()
   }
 })
