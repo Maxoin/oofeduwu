@@ -623,12 +623,14 @@ bot.on('message', message => {
         var testvit = vit2 * 2
         if(probahit <= hit || probahit === hit){
             message.channel.send("L'attaque fait **" + degz + "** points de dégàts !")
+            message.delete()
             if(testvit <= vit1 || testvit === vit2){
             message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour " + nom2 + " !")
             }
         }
         if(probahit >= hit){
             message.channel.send(pkmn1 + " rate son attaque !")
+            message.delete()
         }
     }
 })
@@ -650,6 +652,7 @@ bot.on('message', message => {
         var tourdodo = Math.floor(Math.random() * Math.floor(4))
         tourdodo += 1
         message.channel.send("Le pokemon est endormis pendant " + tourdodo + " tours !")
+        message.delete()
         }
 })
 
@@ -660,9 +663,11 @@ bot.on('message', message => {
         console.log(rollpara)
         if(rollpara <= probapara || rollpara === probapara){
             message.channel.send("Le pokemon est paralysé et ne peux pas attaquer !")
+            message.delete()
         }
         if(rollpara >= probapara){
             message.channel.send("Le pokemon réussis à attaquer !")
+            message.delete()
         }
     }
 })
@@ -674,9 +679,11 @@ bot.on('message', message => {
         console.log(rollstatik)
         if(rollstatik <= probastatik || rollstatik === probastatik){
             message.channel.send("Le pokemon est paralysé !")
+            message.delete()
         }
         if(rollstatik >= probastatik){
             message.channel.send("Le pokemon reste de marbre.")
+            message.delete()
         }
     }
 })
@@ -692,6 +699,7 @@ bot.on('message', message => {
         }
         var pvpkmnpoison = Math.round((pvpokemonp *= 0.125) * 1) / 1
         message.channel.send(nompoison1 + " subits " + pvpkmnpoison + " points dégats à cause du poison.")
+        message.delete()
     }
 })
 
@@ -702,9 +710,11 @@ bot.on('message', message => {
         console.log(rolllove)
         if(rolllove <= probalove || rolllove === probalove){
             message.channel.send("Le pokemon est amoureux !")
+            message.delete()
         }
         if(rolllove >= probalove){
             message.channel.send("Le pokemon reste de marbre.")
+            message.delete()
         }
     }
 })
@@ -948,11 +958,6 @@ bot.on('message', message => {
       messagefinal += ("> " + msgprio[ipriofinal] + "\n")
     }
     message.channel.send(messagefinal)
+    message.delete()
   }
-})
-
-bot.on('message', message => {
-    if(message.content[0] === "!" && message.content[1] === "!"){
-        message.delete()
-    }
 })
