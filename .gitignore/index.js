@@ -1203,8 +1203,11 @@ bot.on('message', message => { //points de vies
   })    
 
 bot.on('message', message => { // !!logz
-  if(message.content.includes(' * ') && message.author.id === "395678267207843872"){
-    message.channel.send(message.content)
-    message.delete()
+  if(message.content.includes("!!logz") && message.author.id === "395678267207843872"){
+    for(var i = 0; i < dataBankPersos.length; i++){
+        var nom32 = dataBankPersos[i][0]
+        var pv32 = dataBankPersos[i][3]
+        message.channel.send(nom32 + " * " + pv32)
+    }
   }
 })
