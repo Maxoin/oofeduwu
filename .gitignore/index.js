@@ -950,3 +950,9 @@ bot.on('message', message => {
     message.channel.send(messagefinal)
   }
 })
+
+bot.on('message', message => {
+    if(message.content[0] === "!" && message.content[1] === "!"){
+        message.delete()
+    }
+})
