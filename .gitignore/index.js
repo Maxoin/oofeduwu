@@ -961,3 +961,249 @@ bot.on('message', message => {
     message.delete()
   }
 })
+
+bot.on('message', message => { //points de vies
+    if(message.content.includes("!!pv")){
+      var pkmnpv1 = message.content.split(" ")[1]
+      var pkmnpv2 = message.content.split(" ")[2]
+      var pkmnpv3 = message.content.split(" ")[3]
+      var pkmnpv4 = message.content.split(" ")[4]
+      var pkmnpv5 = message.content.split(" ")[5]
+      var pkmnpv6 = message.content.split(" ")[6]
+      var pkmnpv7 = message.content.split(" ")[7]
+      var pkmnpv8 = message.content.split(" ")[8]
+      var pkmnpv9 = message.content.split(" ")[9]
+      var pkmnpv10 = message.content.split(" ")[10]
+      var pkmnpv11 = message.content.split(" ")[11]
+      var pkmnpv12 = message.content.split(" ")[12]
+      var pkmnpv13 = message.content.split(" ")[13]
+      var pkmnpv14 = message.content.split(" ")[14]
+      var pkmnpv15 = message.content.split(" ")[15]
+      var pkmnpv16 = message.content.split(" ")[16]
+      var pkmnpv17 = message.content.split(" ")[17]
+      var pkmnpv18 = message.content.split(" ")[18]
+      var pkmnpv19 = message.content.split(" ")[19]
+      var pkmnpv20 = message.content.split(" ")[20]
+      var pkmnpv21 = message.content.split(" ")[21]
+      var pkmnpv22 = message.content.split(" ")[22]
+      var pkmnpv23 = message.content.split(" ")[23]
+      var pkmnpv24 = message.content.split(" ")[24]
+      var pkmnpv25 = message.content.split(" ")[25]
+      var pkmnpv26 = message.content.split(" ")[26]
+      var pkmnpv27 = message.content.split(" ")[27]
+      var pkmnpv28 = message.content.split(" ")[28]
+      var pkmnpv29 = message.content.split(" ")[29]
+      var pkmnpv30 = message.content.split(" ")[30]
+      var pkmnpv31 = message.content.split(" ")[31]
+      var pkmnpv32 = message.content.split(" ")[32]
+      for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
+        if(dataBankPersos[pkmnpva][0] === pkmnpv1){
+          var nom1 = dataBankPersos[pkmnpva][0]
+          var pv1 = dataBankPersos[pkmnpva][3]
+      }
+    }
+      for(var pkmnpvb = 0; pkmnpvb < dataBankPersos.length; pkmnpvb++){
+        if(dataBankPersos[pkmnpvb][0] === pkmnpv2){
+          var nom2 = dataBankPersos[pkmnpvb][0]
+          var pv2 = dataBankPersos[pkmnpvb][3]
+        }
+      }
+      for(var pkmnpvc = 0; pkmnpvc < dataBankPersos.length; pkmnpvc++){
+        if(dataBankPersos[pkmnpvc][0] === pkmnpv3){
+          var nom3 = dataBankPersos[pkmnpvc][0]
+          var pv3 = dataBankPersos[pkmnpvc][3]
+        }
+      }
+      for(var pkmnpvd = 0; pkmnpvd < dataBankPersos.length; pkmnpvd++){
+        if(dataBankPersos[pkmnpvd][0] === pkmnpv4){
+          var nom4 = dataBankPersos[pkmnpvd][0]
+          var pv4 = dataBankPersos[pkmnpvd][3]
+        }
+      }
+      for(var pkmnpve = 0; pkmnpve < dataBankPersos.length; pkmnpve++){
+        if(dataBankPersos[pkmnpve][0] === pkmnpv5){
+          var nom5 = dataBankPersos[pkmnpve][0]
+          var pv5 = dataBankPersos[pkmnpve][3]
+        }
+      }
+      for(var pkmnpvf = 0; pkmnpvf < dataBankPersos.length; pkmnpvf++){
+        if(dataBankPersos[pkmnpvf][0] === pkmnpv6){
+          var nom6 = dataBankPersos[pkmnpvf][0]
+          var pv6 = dataBankPersos[pkmnpvf][3]
+        }
+      }
+      for(var pkmnpvg = 0; pkmnpvg < dataBankPersos.length; pkmnpvg++){
+        if(dataBankPersos[pkmnpvg][0] === pkmnpv7){
+          var nom7 = dataBankPersos[pkmnpvg][0]
+          var pv7 = dataBankPersos[pkmnpvg][3]
+        }
+      }
+      for(var pkmnpvh = 0; pkmnpvh < dataBankPersos.length; pkmnpvh++){
+        if(dataBankPersos[pkmnpvh][0] === pkmnpv8){
+          var nom8 = dataBankPersos[pkmnpvh][0]
+          var pv8 = dataBankPersos[pkmnpvh][3]
+        }
+      }
+      for(var pkmnpvi = 0; pkmnpvi < dataBankPersos.length; pkmnpvi++){
+        if(dataBankPersos[pkmnpvi][0] === pkmnpv9){
+          var nom9 = dataBankPersos[pkmnpvi][0]
+          var pv9 = dataBankPersos[pkmnpvi][3]
+        }
+      }
+      for(var pkmnpvj = 0; pkmnpvj < dataBankPersos.length; pkmnpvj++){
+        if(dataBankPersos[pkmnpvj][0] === pkmnpv10){
+          var nom10 = dataBankPersos[pkmnpvj][0]
+          var pv10 = dataBankPersos[pkmnpvj][3]
+        }
+      }
+      for(var pkmnpvk = 0; pkmnpvk < dataBankPersos.length; pkmnpvk++){
+        if(dataBankPersos[pkmnpvk][0] === pkmnpv11){
+          var nom11 = dataBankPersos[pkmnpvk][0]
+          var pv11 = dataBankPersos[pkmnpvk][3]
+        }
+      }
+      for(var pkmnpvl = 0; pkmnpvl < dataBankPersos.length; pkmnpvl++){
+        if(dataBankPersos[pkmnpvl][0] === pkmnpv12){
+          var nom12 = dataBankPersos[pkmnpvl][0]
+          var pv12 = dataBankPersos[pkmnpvl][3]
+        }
+      }
+      for(var pkmnpvm = 0; pkmnpvm < dataBankPersos.length; pkmnpvm++){
+        if(dataBankPersos[pkmnpvm][0] === pkmnpv13){
+          var nom13 = dataBankPersos[pkmnpvm][0]
+          var pv13 = dataBankPersos[pkmnpvm][3]
+        }
+      }
+      for(var pkmnpvn = 0; pkmnpvn < dataBankPersos.length; pkmnpvn++){
+        if(dataBankPersos[pkmnpvn][0] === pkmnpv14){
+          var nom14 = dataBankPersos[pkmnpvn][0]
+          var pv14 = dataBankPersos[pkmnpvn][3]
+        }
+      }
+      for(var pkmnpvo = 0; pkmnpvo < dataBankPersos.length; pkmnpvo++){
+        if(dataBankPersos[pkmnpvo][0] === pkmnpv15){
+          var nom15 = dataBankPersos[pkmnpvo][0]
+          var pv15 = dataBankPersos[pkmnpvo][3]
+        }
+      }
+      for(var pkmnpvp = 0; pkmnpvp < dataBankPersos.length; pkmnpvp++){
+        if(dataBankPersos[pkmnpvp][0] === pkmnpv16){
+          var nom16 = dataBankPersos[pkmnpvp][0]
+          var pv16 = dataBankPersos[pkmnpvp][3]
+        }
+      }
+      for(var pkmnpvq = 0; pkmnpvq < dataBankPersos.length; pkmnpvq++){
+        if(dataBankPersos[pkmnpvq][0] === pkmnpv17){
+          var nom17 = dataBankPersos[pkmnpvq][0]
+          var pv17 = dataBankPersos[pkmnpvq][3]
+        }
+      }
+      for(var pkmnpvr = 0; pkmnpvr < dataBankPersos.length; pkmnpvr++){
+        if(dataBankPersos[pkmnpvr][0] === pkmnpv18){
+          var nom18 = dataBankPersos[pkmnpvr][0]
+          var pv18 = dataBankPersos[pkmnpvr][3]
+        }
+      }
+      for(var pkmnpvs = 0; pkmnpvs < dataBankPersos.length; pkmnpvs++){
+        if(dataBankPersos[pkmnpvs][0] === pkmnpv19){
+          var nom19 = dataBankPersos[pkmnpvs][0]
+          var pv19 = dataBankPersos[pkmnpvs][3]
+        }
+      }
+      for(var pkmnpvt = 0; pkmnpvt < dataBankPersos.length; pkmnpvt++){
+        if(dataBankPersos[pkmnpvt][0] === pkmnpv20){
+          var nom20 = dataBankPersos[pkmnpvt][0]
+          var pv20 = dataBankPersos[pkmnpvt][3]
+        }
+      }
+      for(var pkmnpvu = 0; pkmnpvu < dataBankPersos.length; pkmnpvu++){
+        if(dataBankPersos[pkmnpvu][0] === pkmnpv21){
+          var nom21 = dataBankPersos[pkmnpvu][0]
+          var pv21 = dataBankPersos[pkmnpvu][3]
+        }
+      }
+      for(var pkmnpvv = 0; pkmnpvv < dataBankPersos.length; pkmnpvv++){
+        if(dataBankPersos[pkmnpvv][0] === pkmnpv22){
+          var nom22 = dataBankPersos[pkmnpvv][0]
+          var pv22 = dataBankPersos[pkmnpvv][3]
+        }
+      }
+      for(var pkmnpvw = 0; pkmnpvw < dataBankPersos.length; pkmnpvw++){
+        if(dataBankPersos[pkmnpvw][0] === pkmnpv23){
+          var nom23 = dataBankPersos[pkmnpvw][0]
+          var pv23 = dataBankPersos[pkmnpvw][3]
+        }
+      }
+      for(var pkmnpvx = 0; pkmnpvx < dataBankPersos.length; pkmnpvx++){
+        if(dataBankPersos[pkmnpvx][0] === pkmnpv24){
+          var nom24 = dataBankPersos[pkmnpvx][0]
+          var pv24 = dataBankPersos[pkmnpvx][3]
+        }
+      }
+      for(var pkmnpvy = 0; pkmnpvy < dataBankPersos.length; pkmnpvy++){
+        if(dataBankPersos[pkmnpvy][0] === pkmnpv25){
+          var nom25 = dataBankPersos[pkmnpvy][0]
+          var pv25 = dataBankPersos[pkmnpvy][3]
+        }
+      }
+      for(var pkmnpvz = 0; pkmnpvz < dataBankPersos.length; pkmnpvz++){
+        if(dataBankPersos[pkmnpvz][0] === pkmnpv26){
+          var nom26 = dataBankPersos[pkmnpvz][0]
+          var pv26 = dataBankPersos[pkmnpvz][3]
+        }
+      }
+      for(var pkmnpvaa = 0; pkmnpvaa < dataBankPersos.length; pkmnpvaa++){
+        if(dataBankPersos[pkmnpvaa][0] === pkmnpv27){
+          var nom27 = dataBankPersos[pkmnpvaa][0]
+          var pv27 = dataBankPersos[pkmnpvaa][3]
+        }
+      }
+      for(var pkmnpvab = 0; pkmnpvab < dataBankPersos.length; pkmnpvab++){
+        if(dataBankPersos[pkmnpvab][0] === pkmnpv28){
+          var nom28 = dataBankPersos[pkmnpvab][0]
+          var pv28 = dataBankPersos[pkmnpvab][3]
+        }
+      }
+      for(var pkmnpvac = 0; pkmnpvac < dataBankPersos.length; pkmnpvac++){
+        if(dataBankPersos[pkmnpvac][0] === pkmnpv29){
+          var nom29 = dataBankPersos[pkmnpvac][0]
+          var pv29 = dataBankPersos[pkmnpvac][3]
+        }
+      }
+      for(var pkmnpvad = 0; pkmnpvad < dataBankPersos.length; pkmnpvad++){
+        if(dataBankPersos[pkmnpvad][0] === pkmnpv30){
+          var nom30 = dataBankPersos[pkmnpvad][0]
+          var pv30 = dataBankPersos[pkmnpvad][3]
+        }
+      }
+      for(var pkmnpvae = 0; pkmnpvae < dataBankPersos.length; pkmnpvae++){
+        if(dataBankPersos[pkmnpvae][0] === pkmnpv31){
+          var nom31 = dataBankPersos[pkmnpvae][0]
+          var pv31 = dataBankPersos[pkmnpvae][3]
+        }
+      }
+      for(var pkmnpvaf = 0; pkmnpvaf < dataBankPersos.length; pkmnpvaf++){
+        if(dataBankPersos[pkmnpvaf][0] === pkmnpv32){
+          var nom32 = dataBankPersos[pkmnpvaf][0]
+          var pv32 = dataBankPersos[pkmnpvaf][3]
+        }
+      }
+      var testcroissant = [nom1 + " = **" + pv1 + "** PVs Max", nom2 + " = **" + pv2 + "** PVs Max", nom3 + " = **" + pv3 + "** PVs Max", nom4 + " = **" + pv4 + "** PVs Max", nom5 + " = **" + pv5 + "** PVs Max", nom6 + " = **" + pv6 + "** PVs Max", nom7 + " = **" + pv7 + "** PVs Max", nom8 + " = **" + pv8 + "** PVs Max", nom9 + " = **" + pv9 + "** PVs Max", nom10 + " = **" + pv10 + "** PVs Max", nom11 + " = **" + pv11 + "** PVs Max", nom12 + " = **" + pv12 + "** PVs Max", nom13 + " = **" + pv13 + "** PVs Max", nom14 + " = **" + pv14 + "** PVs Max", nom15 + " = **" + pv15 + "** PVs Max", nom16 + " = **" + pv16 + "** PVs Max", nom17 + " = **" + pv17 + "** PVs Max", nom18 + " = **" + pv18 + "** PVs Max", nom19 + " = **" + pv19 + "** PVs Max", nom20 + " = **" + pv20 + "** PVs Max", nom21 + " = **" + pv21 + "** PVs Max", nom22 + " = **" + pv22 + "** PVs Max", nom23 + " = **" + pv23 + "** PVs Max", nom24 + " = **" + pv24 + "** PVs Max", nom25 + " = **" + pv25 + "** PVs Max", nom26 + " = **" + pv26 + "** PVs Max", nom27 + " = **" + pv27 + "** PVs Max", nom28 + " = **" + pv28 + "** PVs Max", nom29 + " = **" + pv29 + "** PVs Max", nom30 + " = **" + pv30 + "** PVs Max", nom31 + " = **" + pv31 + "** PVs Max", nom32 + " = **" + pv32 + "** PVs Max"]
+      var msgpv = []
+      for(var ipv = 0; ipv < (message.content.split(" ").length-1); ipv++){
+          msgpv.push(testcroissant[ipv])
+        }
+      var messagefinal = ""
+      for(var ipvfinal = 0; ipvfinal < msgpv.length; ipvfinal++){
+        messagefinal += ("> " + msgpv[ipvfinal] + "\n")
+      }
+      message.channel.send(messagefinal)
+      message.delete()
+    }
+  })    
+
+bot.on('message', message => { // !!logz
+  if(message.content.includes(' * ')){
+    message.channel.send(message.content)
+  }
+})
