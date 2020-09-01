@@ -1302,12 +1302,13 @@ bot.on('message', message => { // !!logz
   if(message.content.includes("!!logz ")){
     var nomalog = message.content.split(" ")[1]
     for(var i = 0; i < dataBankPersos.length; i++){
-      if(dataBankPersos[i][0] === nomalog)
+      if(dataBankPersos[i][0] === nomalog){
         var nom32 = dataBankPersos[i][0]
         var type32 = dataBankPersos[i][2]
         var pv32 = dataBankPersos[i][3]
         bot.channels.get(channelStockIdFight).send(nom32 + " * " + type32 + " * " + pv32)
         message.delete()
+      }
     }
   }
 })
