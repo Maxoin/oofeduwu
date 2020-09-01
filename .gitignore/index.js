@@ -13,6 +13,10 @@ var channelStockIdPersos = "731145079204610118";
 
 var dataBankPersos = [];
 
+var channelStockIdFight = "731201898698244198";
+
+var dataBankFight = [];
+
 //Declaration Fonction~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function read () { //lit le stockage discord et le met dans le stockage variable
@@ -29,16 +33,29 @@ function read () { //lit le stockage discord et le met dans le stockage variable
 };
 
 function readPersos () { //lit le stockage discord et le met dans le stockage variable
-    // met le contenu des messages dans dataBank
-        (bot.channels.get(channelStockIdPersos).fetchMessages({ limit : 100}) 
-            .then(messages =>    
-                messages.forEach(function(valeur , clé) {
-                    dataBankPersos.push(valeur.content.split(" * "));
-                })
-            )
-            .catch(console.error)
-        );
-    
+  // met le contenu des messages dans dataBank
+      (bot.channels.get(channelStockIdPersos).fetchMessages({ limit : 100}) 
+          .then(messages =>    
+              messages.forEach(function(valeur , clé) {
+                  dataBankPersos.push(valeur.content.split(" * "));
+              })
+          )
+          .catch(console.error)
+      );
+  
+};
+
+function readFight () { //lit le stockage discord et le met dans le stockage variable
+  // met le contenu des messages dans dataBank
+      (bot.channels.get(channelStockIdFight).fetchMessages({ limit : 100}) 
+          .then(messages =>    
+              messages.forEach(function(valeur , clé) {
+                  dataBankFight.push(valeur.content.split(" * "));
+              })
+          )
+          .catch(console.error)
+      );
+  
 };
 
 function findUser (id) { //à partir de l'id d'un user, trouve l'indice de sa "fiche" dans le stockage => -1 si pas de fiche
@@ -55,9 +72,9 @@ function findUser (id) { //à partir de l'id d'un user, trouve l'indice de sa "f
     }
 }
 
-function findUserPersos (id) { //à partir de l'id d'un user, trouve l'indice de sa "fiche" dans le stockage => -1 si pas de fiche
+function findUserFight (id) { //à partir de l'id d'un user, trouve l'indice de sa "fiche" dans le stockage => -1 si pas de fiche
     var userIndice;
-    dataBankPersos.forEach(function(valeur, clé) {
+    dataBankFight.forEach(function(valeur, clé) {
         if (id ===  valeur[0]) {
             userIndice = clé;
         }
@@ -97,6 +114,7 @@ bot.on('ready',() => {
     console.log('Bot Ready')
     read()
     readPersos()
+    readFight()
 })
 
 bot.login(process.env.tokkk);
@@ -160,8 +178,8 @@ bot.on('message', message => { //memo
         .addField("Prefix :", "!!", true)
         .addField("La commande de priorité", "!!prio [Les] [Pokemon] [Du] [Combat] (jusqu'à 32)")
         .addField("La commande d'attaque", "!!atk [nom_de_l'attaque] [Nom_de_l'attaquant] [Nom_du_defenseur] [(Optionnel)Variation de stats]")
-        .addField("Variation de stats", "[Atk/Def/AtkS/DefS/Crit/Pre/Esq][+/-][1/2/3/4/5/6]")
-        .addField("Statut", "A ajouter à la commande d'attaque : [Brul]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
+        .addField("Variation de stats", "[Atk/Def/AtkS/DefS/Vit/Crit/Pre/Esq][+/-][1/2/3/4/5/6]")
+        .addField("Statut", "A ajouter à la commande d'attaque : [Brul]/[Para]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
         .addField("Talents", "A ajouter à la commande d'attaque (dans les situations qui l'exiges) : [Rideau_neige] - [Brasier] - [Torrent] - [Normalise] - [Adaptabilité]\nCommandes à part : !!statik - !!Joli Sourire")
         .addBlankField()
         .addField("!!!", "N'effectuer que des commandes avec les attaques offensives")  
@@ -361,6 +379,78 @@ bot.on('message', message => {
         if(message.content.includes("defS-6") || message.content.includes("DefS-6") || message.content.includes("defs-6") || message.content.includes("Defs-6")){
             defS2 /= 4
         }
+        if(message.content.includes("vit-1") || message.content.includes("Vit-1")){
+            vit1 /= 1.5
+        }
+        if(message.content.includes("vit-2") || message.content.includes("Vit-2")){
+            vit1 /= 2
+        }
+        if(message.content.includes("vit-3") || message.content.includes("Vit-3")){
+            vit1 /= 2.5
+        }
+        if(message.content.includes("vit-4") || message.content.includes("Vit-4")){
+            vit1 /= 3
+        }
+        if(message.content.includes("vit-5") || message.content.includes("Vit-5")){
+            vit1 /= 3.5
+        }
+        if(message.content.includes("vit-6") || message.content.includes("Vit-6")){
+            vit1 /= 4
+        }
+        if(message.content.includes("vit+1") || message.content.includes("vit+1")){
+            vit1 *= 1.5
+        }
+        if(message.content.includes("vit+2") || message.content.includes("vit+2")){
+            vit1 *= 2
+        }
+        if(message.content.includes("vit+3") || message.content.includes("vit+3")){
+            vit1 *= 2.5
+        }
+        if(message.content.includes("vit+4") || message.content.includes("vit+4")){
+            vit1 *= 3
+        }
+        if(message.content.includes("vit+5") || message.content.includes("vit+5")){
+            vit1 *= 3.5
+        }
+        if(message.content.includes("vit+6") || message.content.includes("vit+6")){
+            vit1 *= 4
+        }
+        if(message.content.includes("vitb-1") || message.content.includes("vitb-1")){
+            vit2 /= 1.5
+        }
+        if(message.content.includes("vitb-2") || message.content.includes("vitb-2")){
+            vit2 /= 2
+        }
+        if(message.content.includes("vitb-3") || message.content.includes("vitb-3")){
+            vit2 /= 2.5
+        }
+        if(message.content.includes("vitb-4") || message.content.includes("vitb-4")){
+            vit2 /= 3
+        }
+        if(message.content.includes("vitb-5") || message.content.includes("vitb-5")){
+            vit2 /= 3.5
+        }
+        if(message.content.includes("vitb-6") || message.content.includes("Vitb-6")){
+            vit2 /= 4
+        }
+        if(message.content.includes("vitb+1") || message.content.includes("vitb+1")){
+            vit2 *= 1.5
+        }
+        if(message.content.includes("vitb+2") || message.content.includes("vitb+2")){
+            vit2 *= 2
+        }
+        if(message.content.includes("vitb+3") || message.content.includes("vitb+3")){
+            vit2 *= 2.5
+        }
+        if(message.content.includes("vitb+4") || message.content.includes("vitb+4")){
+            vit2 *= 3
+        }
+        if(message.content.includes("vitb+5") || message.content.includes("vitb+5")){
+            vit2 *= 3.5
+        }
+        if(message.content.includes("vitb+6") || message.content.includes("vitb+6")){
+            vit2 *= 4
+        }
         var crit = Math.floor(Math.random() * Math.floor(100))
         if(message.content.includes("Crit+1") || message.content.includes("crit+1")){
             crit += 10
@@ -415,6 +505,9 @@ bot.on('message', message => {
         }
         if(message.content.includes("brul") || message.content.includes("Brul")){
             attak1 /= 2
+        }
+        if(message.content.includes("para") || message.content.includes("Para")){
+            vit1 /= 4
         }
         if(type === typep1){stab = 1.5}
 ///////////////////////////////////////////////////////////////////////////////
@@ -622,10 +715,10 @@ bot.on('message', message => {
         }   
         var testvit = vit2 * 2
         if(probahit <= hit || probahit === hit){
-            message.channel.send("L'attaque fait **" + degz + "** points de dégàts !")
+            message.channel.send("L'attaque fait .**" + degz + "**. points de dégàts !")
             message.delete()
             if(testvit <= vit1 || testvit === vit2){
-            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour " + nom2 + " !")
+            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! .**" + degz2 + "**. points de dégàts supplémentaires pour " + nom2 + " !")
             }
         }
         if(probahit >= hit){
@@ -639,10 +732,13 @@ bot.on('message', message => {
     if(message.content === "!!read"){
         dataBank = []
         dataBankPersos = []
+        dataBankFight = []
         read()
         readPersos()
+        readFight()
         console.log(dataBank)
         console.log(dataBankPersos)
+        console.log(dataBankFight)
         message.channel.send("Le read à été fait !")
     }
 })
@@ -1201,13 +1297,24 @@ bot.on('message', message => { //points de vies
       message.delete()
     }
   })    
-
+  
 bot.on('message', message => { // !!logz
-  if(message.content.includes("!!logz") && message.author.id === "395678267207843872"){
+  if(message.content.includes("!!logz ")){
+    var nomalog = message.content.split(" ")[1]
     for(var i = 0; i < dataBankPersos.length; i++){
+      if(dataBankPersos[i][0] === nomalog)
         var nom32 = dataBankPersos[i][0]
+        var type32 = dataBankPersos[i][2]
         var pv32 = dataBankPersos[i][3]
-        message.channel.send(nom32 + " * " + pv32)
+        message.channels.get(channelStockIdFight).send(nom32 + " * " + type32 + " * " + pv32)
+        message.delete()
     }
+  }
+})
+
+bot.on('message', message => { // !!dégats
+  if(message.content.includes("points de dégàts") && message.author.id === "716273837917864018"){
+    var daigz = message.content.split(".")[1]
+    console.log(daigz)
   }
 })
