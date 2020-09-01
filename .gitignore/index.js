@@ -1306,7 +1306,7 @@ bot.on('message', message => { // !!logz
         var nom32 = dataBankPersos[i][0]
         var type32 = dataBankPersos[i][2]
         var pv32 = dataBankPersos[i][3]
-        message.channels.get(channelStockIdFight).send(nom32 + " * " + type32 + " * " + pv32)
+        bot.channels.get(channelStockIdFight).send(nom32 + " * " + type32 + " * " + pv32)
         message.delete()
     }
   }
@@ -1317,6 +1317,6 @@ bot.on('message', message => { // !!dégats
     var daigz = message.content.split(".")[1]
     var nomz = message.content.splot(".")[3]
     console.log(daigz + " à " + nomz)
-    
+
   }
 })
