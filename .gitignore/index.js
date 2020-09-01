@@ -715,10 +715,10 @@ bot.on('message', message => {
         }   
         var testvit = vit2 * 2
         if(probahit <= hit || probahit === hit){
-            message.channel.send("L'attaque fait .**" + degz + "**. points de dégàts !")
+            message.channel.send("L'attaque fait **." + degz + ".** points de dégàts ." + nom2 + ". !")
             message.delete()
             if(testvit <= vit1 || testvit === vit2){
-            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! .**" + degz2 + "**. points de dégàts supplémentaires pour " + nom2 + " !")
+            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **." + degz2 + ".** points de dégàts supplémentaires pour ." + nom2 + ". !")
             }
         }
         if(probahit >= hit){
@@ -1315,6 +1315,8 @@ bot.on('message', message => { // !!logz
 bot.on('message', message => { // !!dégats
   if(message.content.includes("points de dégàts") && message.author.id === "716273837917864018"){
     var daigz = message.content.split(".")[1]
-    console.log(daigz)
+    var nomz = message.content.splot(".")[3]
+    console.log(daigz + " à " + nomz)
+    
   }
 })
