@@ -184,6 +184,8 @@ bot.on('message', message => { //memo
         .addField("Variation de stats", "[Atk/Def/AtkS/DefS/Vit/Crit/Pre/Esq][+/-][1/2/3/4/5/6]")
         .addField("Statut", "A ajouter à la commande d'attaque : [Brul]/[Para]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
         .addField("Talents", "A ajouter à la commande d'attaque (dans les situations qui l'exiges) : [Rideau_neige] - [Brasier] - [Torrent] - [Normalise] - [Adaptabilité]\nCommandes à part : !!statik - !!Joli Sourire")
+        .addField("PV Temps Réels", "Si un gens n'est pas repertorié dans la base de donnée des PV : ``!!logz [nom_du_perso]``")
+        .addField("Soin", "``!!heal [nom_de_perso] [type_de_heal]``\nTypes de heals : ``[Full]``/``[Oran]``(20pv)/``[1/2]``")
         .addBlankField()
         .addField("!!!", "N'effectuer que des commandes avec les attaques offensives")  
         .setColor("#c40000")
