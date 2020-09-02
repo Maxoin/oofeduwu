@@ -151,7 +151,7 @@ bot.on('message', message => { //Garen
 
 bot.on('message', message => { //Des
     if(message.author.id === "161908030559092738" && message.content === "!!list"){
-    message.channel.send("__**~Des~**__\n*Situations :*\n``investigations1*\n``combat1``")
+  message.channel.send("__**~Des~**__\n*Situations :*\n``investigations1\ncombat1``*")
     }
     if(message.author.id === "161908030559092738" && message.content === "!!investigations1"){
     message.channel.send("https://www.youtube.com/watch?v=AtgquM4JKR0")
