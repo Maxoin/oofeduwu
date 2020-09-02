@@ -185,7 +185,7 @@ bot.on('message', message => { //memo
         .addField("Statut", "A ajouter à la commande d'attaque : [Brul]/[Para]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
         .addField("Talents", "A ajouter à la commande d'attaque (dans les situations qui l'exiges) : [Rideau_neige] - [Brasier] - [Torrent] - [Normalise] - [Adaptabilité]\nCommandes à part : !!statik - !!Joli Sourire")
         .addField("PV Temps Réels", "Si un gens n'est pas repertorié dans la base de donnée des PV : ``!!logz [nom_du_perso]``")
-        .addField("Soin", "``!!heal [nom_de_perso] [type_de_heal]``\nTypes de heals : ``[Full]``/``[Oran]``(20pv)/``[1/2]``")
+        .addField("Soin", "``!!heal [nom_de_perso] [type_de_heal]``\nTypes de heals : ``[Full]``/``[Oran]``(100pv)/``[1/2]``")
         .addBlankField()
         .addField("!!!", "N'effectuer que des commandes avec les attaques offensives")  
         .setColor("#c40000")
@@ -1470,7 +1470,7 @@ bot.on('message', message => { // !!heal
           var pvh = dataBankPersos[i][3]
         }
       }
-      var healfinal = Math.round(((pvtr*1)+20) * 1) / 1
+      var healfinal = Math.round(((pvtr*1)+100) * 1) / 1
       console.log(healfinal)
       if(healfinal >= pvh){
         healfinal = pvh
