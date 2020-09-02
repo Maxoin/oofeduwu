@@ -150,15 +150,15 @@ bot.on('message', message => { //Garen
 })
 
 bot.on('message', message => { //Des
-    if(message.author.id === "161908030559092738" && message.content === "!!list"){
+  if(message.author.id === "161908030559092738" && message.content === "!!list"){
   message.channel.send("__**~Des~**__\n*Situations :*\n``investigations1\ncombat1``*")
-    }
-    if(message.author.id === "161908030559092738" && message.content === "!!investigations1"){
-    message.channel.send("https://www.youtube.com/watch?v=AtgquM4JKR0")
-    }
-    if(message.author.id === "161908030559092738" && message.content === "!!combat1"){
-    message.channel.send("https://www.youtube.com/watch?v=GMNlhRO7NiM")
-    }
+  }
+  if(message.author.id === "161908030559092738" && message.content === "!!investigations1"){
+  message.channel.send("https://www.youtube.com/watch?v=AtgquM4JKR0")
+  }
+  if(message.author.id === "161908030559092738" && message.content === "!!combat1"){
+  message.channel.send("https://www.youtube.com/watch?v=GMNlhRO7NiM")
+  }
 })
 
 bot.on('message', message => { //Iris
@@ -717,19 +717,44 @@ bot.on('message', message => {
             message.channel.send("**Coup Critique !**")
         }   
         var testvit = vit2 * 2
-        if(probahit <= hit || probahit === hit){
+        if(probahit <= hit && testvit > vit1){
+          message.channel.send("L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+          message.delete()
+          setTimeout(() =>{
+            readFight()
+          }, 1000)
+          setTimeout(() =>{
+            for(var i = 0; i < dataBankFight.length; i++){
+              if(dataBankFight[i][0] === nom2){
+                var pvf = dataBankFight[i][2]
+              }
+            }
+            message.channel.send(nom2 + " : " + pvf)
+          }, 2000)
+        }
+        if(probahit <= hit && testvit <= vit1){
             message.channel.send("L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
             message.delete()
-            if(testvit <= vit1 || testvit === vit2){
             message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
-            }
+            setTimeout(() =>{
+              readFight()
+            }, 1000)
+            setTimeout(() =>{
+              for(var i = 0; i < dataBankFight.length; i++){
+                if(dataBankFight[i][0] === nom2){
+                  var pvf = dataBankFight[i][2]
+                }
+              }
+              message.channel.send(nom2 + " : " + pvf)
+            }, 2000)
+          }
         }
         if(probahit >= hit){
             message.channel.send(pkmn1 + " rate son attaque !")
             message.delete()
         }
     }
-})
+  )
 
 bot.on('message', message => {
     if(message.content === "!!read"){
@@ -797,12 +822,12 @@ bot.on('message', message => {
           }
         }
         var pvpkmnpoison = Math.round((pvpokemonp *= 0.125) * 1) / 1
-        message.channel.send(nompoison1 + " subits " + pvpkmnpoison + " points dégats à cause du poison.")
+        message.channel.send("**" + nompoison1 + "** subit **" + pvpkmnpoison + "** points dégats à cause du poison.")
         message.delete()
     }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Joli Sourire
     if(message.content === "!!Joli Sourire"){
         var rolllove = Math.floor(Math.random() * Math.floor(100))
         var probalove = 30
@@ -818,7 +843,7 @@ bot.on('message', message => {
     }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Prio
   if(message.content.includes("!!prio")){
     var pkmnprio1 = message.content.split(" ")[1]
     var pkmnprio2 = message.content.split(" ")[2]
@@ -1310,6 +1335,7 @@ bot.on('message', message => { // !!logz
         var type32 = dataBankPersos[i][2]
         var pv32 = dataBankPersos[i][3]
         bot.channels.get(channelStockIdFight).send(nom32 + " * " + type32 + " * " + pv32)
+        readFight()
         message.delete()
       }
     }
@@ -1317,10 +1343,182 @@ bot.on('message', message => { // !!logz
 })
 
 bot.on('message', message => { // !!dégats
-  if(message.content.includes("points de dégàts") && message.author.id === "716273837917864018"){
-    var daigz = message.content.split(".")[1]
-    var nomz = message.content.splot(".")[3]
+  if(message.content.includes("L'attaque fait ") && message.author.id === "716273837917864018"){
+    var daigz = message.content.split("**")[1]
+    var nomz = message.content.split("**")[3]
     console.log(daigz + " à " + nomz)
+    for(var i = 0; i < dataBankFight.length; i++){
+      if(dataBankFight[i][0] === nomz){
+        var nomf = dataBankFight[i][0]
+        var typef = dataBankFight[i][1]
+        var pvf = dataBankFight[i][2]
+        var vierest = pvf -= daigz
+      }
+    }
+    console.log(vierest)
+    bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if (message.content.split(' * ')[0] === nomz) {
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+                .then(message => 
+                    message.edit(nomf + " * " + typef + " * " + vierest)
+                )
+            }
+      })
+    )
+    readFight()
+  }
+})
 
+bot.on('message', message => { // !!dégats vit
+  if(message.content.includes(" lui fait assainer une nouvelle attaque") && message.author.id === "716273837917864018"){
+    setTimeout(() => {
+    var daigz = message.content.split("**")[1]
+    var nomz = message.content.split("**")[3]
+    console.log(daigz + " à " + nomz)
+    for(var i = 0; i < dataBankFight.length; i++){
+      if(dataBankFight[i][0] === nomz){
+        var nomf = dataBankFight[i][0]
+        var typef = dataBankFight[i][1]
+        var pvf = dataBankFight[i][2]
+        var vierest = pvf -= daigz
+      }
+    }
+    console.log(vierest)
+    bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if (message.content.split(' * ')[0] === nomz) {
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+                .then(message => 
+                    message.edit(nomf + " * " + typef + " * " + vierest)
+                )
+            }
+      })
+    )
+    readFight()
+  }, 1000)
+  }
+})
+
+bot.on('message', message => { // !!dégats poison
+  if(message.content.includes("à cause du poison") && message.author.id === "716273837917864018"){
+    setTimeout(() => {
+    var daigz = message.content.split("**")[1]
+    var nomz = message.content.split("**")[3]
+    console.log(daigz + " à " + nomz)
+    for(var i = 0; i < dataBankFight.length; i++){
+      if(dataBankFight[i][0] === nomz){
+        var nomf = dataBankFight[i][0]
+        var typef = dataBankFight[i][1]
+        var pvf = dataBankFight[i][2]
+        var vierest = pvf -= daigz
+      }
+    }
+    console.log(vierest)
+    bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if (message.content.split(' * ')[0] === nomz) {
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+                .then(message => 
+                    message.edit(nomf + " * " + typef + " * " + vierest)
+                )
+            }
+      })
+    )
+    readFight()
+  }, 1000)
+  }
+})
+
+bot.on('message', message => { // !!heal
+  if(message.content.includes("!!heal ")){
+    var persoh1 = message.content.split(" ")[1]
+    for(var i = 0; i < dataBankFight.length; i++){
+      if(dataBankFight[i][0] === persoh1){
+        var typeosef = dataBankFight[i][1]
+        var pvtr = dataBankFight[i][2]
+      }
+    }
+    var typeheal = message.content.split(" ")[2]
+    Number(pvtr)
+    if(typeheal === "Full" || typeheal === "full"){ //Full
+      for(var i = 0; i < dataBankPersos.length; i++){
+        if(dataBankPersos[i][0] === persoh1){
+          var pvh = dataBankPersos[i][3]
+        }
+      }
+      var healfinal = pvh
+      bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if(message.content.split(' * ')[0] === persoh1) {
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+                .then(message => 
+                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
+                )
+            }
+      })
+    )}
+    if(typeheal === "Oran"){  //Oran
+      for(var i = 0; i < dataBankPersos.length; i++){
+        if(dataBankPersos[i][0] === persoh1){
+          var pvh = dataBankPersos[i][3]
+        }
+      }
+      var healfinal = Math.round(((pvtr*1)+20) * 1) / 1
+      console.log(healfinal)
+      if(healfinal >= pvh){
+        healfinal = pvh
+      }
+      bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if(message.content.split(' * ')[0] === persoh1) {
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+                .then(message => 
+                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
+                )
+            }
+      })
+    )}
+    if(typeheal === "1/2"){ 
+      for(var i = 0; i < dataBankPersos.length; i++){
+        if(dataBankPersos[i][0] === persoh1){
+          var pvh = dataBankPersos[i][3]
+        }
+      }
+      var midhp = Math.round(((pvh*1)/2) * 1) / 1
+      var healfinal = Math.round(((pvtr*1)+midhp) * 1) / 1
+      console.log(healfinal)
+      if(healfinal >= pvh){
+        healfinal = pvh
+      }
+      bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if(message.content.split(' * ')[0] === persoh1) {
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+                .then(message => 
+                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
+                )
+            }
+      })
+    )}
+    readFight()
+    console.log(typeheal + " et " + pvtr)
+    message.channel.send(persoh1 + " est soigné.")
+    message.delete()
+    setTimeout(() =>{
+      message.channel.send(persoh1 + " : " + healfinal)
+    }, 1000)
+  }
+})
+
+bot.on('message', message => {
+  if(message.content === "!!test"){
+      console.log(dataBankFight)
   }
 })
