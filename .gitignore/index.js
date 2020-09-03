@@ -732,7 +732,7 @@ bot.on('message', message => {
               }
             }
             message.channel.send(nom2 + " : " + pvf)
-          }, 2000)
+          }, 3000)
         }
         if(probahit <= hit && testvit <= vit1){
             message.channel.send("L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
