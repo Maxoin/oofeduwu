@@ -1290,7 +1290,7 @@ bot.on('message', message => { // !!logz
 })
 
 bot.on('message', message => { // !!dégats
-  if(message.content.includes("L'attaque fait ") && message.author.id === "716273837917864018"){
+  if(message.content.includes("L'attaque fait ") && message.author.id === "444830923381407764"){
     var daigz = message.content.split("**")[1]
     var nomz = message.content.split("**")[3]
     console.log(daigz + " à " + nomz)
@@ -1319,7 +1319,7 @@ bot.on('message', message => { // !!dégats
 })
 
 bot.on('message', message => { // !!dégats vit
-  if(message.content.includes(" lui fait assainer une nouvelle attaque") && message.author.id === "716273837917864018"){
+  if(message.content.includes(" lui fait assainer une nouvelle attaque") && message.author.id === "444830923381407764"){
     setTimeout(() => {
     var daigz = message.content.split("**")[1]
     var nomz = message.content.split("**")[3]
@@ -1350,7 +1350,7 @@ bot.on('message', message => { // !!dégats vit
 })
 
 bot.on('message', message => { // !!dégats poison
-  if(message.content.includes("à cause du poison") && message.author.id === "716273837917864018"){
+  if(message.content.includes("à cause du poison") && message.author.id === "444830923381407764"){
     setTimeout(() => {
     var daigz = message.content.split("**")[1]
     var nomz = message.content.split("**")[3]
