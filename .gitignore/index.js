@@ -1307,7 +1307,7 @@ bot.on('message', message => { // !!dégats
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if (message.content.split(' * ')[0] === nomz) {
-            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                 .then(message => 
                     message.edit(nomf + " * " + typef + " * " + vierest)
                 )
@@ -1337,7 +1337,7 @@ bot.on('message', message => { // !!dégats vit
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if (message.content.split(' * ')[0] === nomz) {
-            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                 .then(message => 
                     message.edit(nomf + " * " + typef + " * " + vierest)
                 )
@@ -1368,7 +1368,7 @@ bot.on('message', message => { // !!dégats poison
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if (message.content.split(' * ')[0] === nomz) {
-            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                 .then(message => 
                     message.edit(nomf + " * " + typef + " * " + vierest)
                 )
@@ -1402,7 +1402,7 @@ bot.on('message', message => { // !!heal
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                 .then(message => 
                     message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
                 )
@@ -1424,7 +1424,7 @@ bot.on('message', message => { // !!heal
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                 .then(message => 
                     message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
                 )
@@ -1447,7 +1447,7 @@ bot.on('message', message => { // !!heal
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                 .then(message => 
                     message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
                 )
