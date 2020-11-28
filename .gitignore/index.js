@@ -1307,7 +1307,7 @@ bot.on('message', message => { // !!dégats
     .then(messages =>
       messages.forEach(function(message, idMsg) {
         if (message.content.split(' * ')[0] === nomz) {
-            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+            bot.channels.get(channelStockIdFight).fetchMessage(idMsg)
                 .then(message => 
                     message.edit(nomf + " * " + typef + " * " + vierest)
                 )
