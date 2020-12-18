@@ -118,11 +118,11 @@ bot.on('ready',() => {
 })
 
 bot.login(process.env.tokkk);
-bot.on('message', message => { //memo
-    if(message.content === "!!memo"){
+bot.on('message', message => { //help
+    if(message.content === "!!help"){
       var embed = new Discord.RichEmbed()
         .setTitle("**Koman ssamarsh ?**")
-        .setDescription("Petit post-it pour pas oublier comment que Griffin fonctionne")
+        .setDescription("Petit post-it pour pas oublier comment que le bot fonctionne")
         .addField("Prefix :", "!!", true)
         .addField("La commande de priorité", "!!prio [Les] [Pokemon] [Du] [Combat] (jusqu'à 32)")
         .addField("La commande d'attaque", "!!atk [nom_de_l'attaque] [Nom_de_l'attaquant] [Nom_du_defenseur] [(Optionnel)Variation de stats]")
