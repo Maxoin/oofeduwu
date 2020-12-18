@@ -1415,7 +1415,7 @@ bot.on('message', message => { // !!heal
           var pvh = dataBankPersos[i][3]
         }
       }
-      var healfinal = Math.round(((pvtr*1)+10) * 1) / 1
+      var healfinal = Math.round(((pvtr*1)+100) * 1) / 1
       console.log(healfinal)
       if(healfinal >= pvh){
         healfinal = pvh
