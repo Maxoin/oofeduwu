@@ -5,15 +5,15 @@ var i = 0
 
 //Declaration Variables~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-var channelStockId = "782211314549653504";  //Max, met ici l'id du channel !
+var channelStockId = "789225329134272517";  //Max, met ici l'id du channel !
 
 var dataBank = []; //Contient des tableaux : C'est la base de données quand le bot est actif !
 
-var channelStockIdPersos = "782211188326924295";
+var channelStockIdPersos = "789225329134272518";
 
 var dataBankPersos = [];
 
-var channelStockIdFight = "782211477801009153";
+var channelStockIdFight = "789225329134272519";
 
 var dataBankFight = [];
 
