@@ -417,6 +417,9 @@ bot.on('message', message => {
         if(message.content.includes("Crit+5") || message.content.includes("crit+5")){
             crit += 30
         }
+        if(message.content.includes("Crit+6") || message.content.includes("crit+6")){
+            crit += 35
+        }
         if(message.content.includes("Esq+1") || message.content.includes("esq+1")){
             esqui = 133
         }
