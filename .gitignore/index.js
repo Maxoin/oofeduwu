@@ -141,7 +141,7 @@ bot.on('message', message => { //help
   })
 
 bot.on('message', message => {
-    if(message.content.includes("!!atk " && message.member.roles.has("789225328370647055")){
+    if(message.content.includes("!!atk " && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var stab = 1
         var attaque = message.content.split(" ")[1]
         var pkmn1 = message.content.split(" ")[2]
@@ -707,7 +707,7 @@ bot.on('message', message => {
   )
 
 bot.on('message', message => {
-    if(message.content === "!!read" && message.member.roles.has("789225328370647055")){
+    if(message.content === "!!read" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         dataBank = []
         dataBankPersos = []
         dataBankFight = []
@@ -722,7 +722,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
-    if(message.content === "!!sommeil" && message.member.roles.has("789225328370647055")){
+    if(message.content === "!!sommeil" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var tourdodo = Math.floor(Math.random() * Math.floor(4))
         tourdodo += 1
         message.channel.send("Le pokemon est endormis pendant " + tourdodo + " tours !")
@@ -731,7 +731,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
-    if(message.content === "!!para" && message.member.roles.has("789225328370647055")){
+    if(message.content === "!!para" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var rollpara = Math.floor(Math.random() * Math.floor(100))
         var probapara = 25
         console.log(rollpara)
@@ -747,7 +747,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
-    if(message.content === "!!statik" && message.member.roles.has("789225328370647055")){
+    if(message.content === "!!statik" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var rollstatik = Math.floor(Math.random() * Math.floor(100))
         var probastatik = 30
         console.log(rollstatik)
@@ -763,7 +763,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
-    if(message.content.includes("!!poison " && message.member.roles.has("789225328370647055"))){
+    if(message.content.includes("!!poison " && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var pkmnpoison = message.content.split(" ")[1]
         for(var ipoi = 0; ipoi < dataBankPersos.length; ipoi++){
           if(dataBankPersos[ipoi][0] === pkmnpoison){
@@ -778,7 +778,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => { //Joli Sourire
-    if(message.content === "!!Joli Sourire" && message.member.roles.has("789225328370647055")){
+    if(message.content === "!!Joli Sourire" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var rolllove = Math.floor(Math.random() * Math.floor(100))
         var probalove = 30
         console.log(rolllove)
@@ -794,7 +794,7 @@ bot.on('message', message => { //Joli Sourire
 })
 
 bot.on('message', message => { //Prio
-  if(message.content.includes("!!prio" && message.member.roles.has("789225328370647055"))){
+  if(message.content.includes("!!prio" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
     var pkmnprio1 = message.content.split(" ")[1]
     var pkmnprio2 = message.content.split(" ")[2]
     var pkmnprio3 = message.content.split(" ")[3]
@@ -1037,7 +1037,7 @@ bot.on('message', message => { //Prio
 })
 
 bot.on('message', message => { //points de vies
-    if(message.content.includes("!!pv") && message.member.roles.has("789225328370647055")){
+    if(message.content.includes("!!pv") && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
       var pkmnpv1 = message.content.split(" ")[1]
       var pkmnpv2 = message.content.split(" ")[2]
       var pkmnpv3 = message.content.split(" ")[3]
@@ -1277,7 +1277,7 @@ bot.on('message', message => { //points de vies
   })    
   
 bot.on('message', message => { // !!logz
-  if(message.content.includes("!!logz " && message.member.roles.has("789225328370647055"))){
+  if(message.content.includes("!!logz " && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
     var nomalog = message.content.split(" ")[1]
     for(var i = 0; i < dataBankPersos.length; i++){
       if(dataBankPersos[i][0] === nomalog){
@@ -1384,7 +1384,7 @@ bot.on('message', message => { // !!dégats poison
 })
 
 bot.on('message', message => { // !!heal
-  if(message.content.includes("!!heal ") && message.member.roles.has("789225328370647055")){
+  if(message.content.includes("!!heal ") && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
     var persoh1 = message.content.split(" ")[1]
     for(var i = 0; i < dataBankFight.length; i++){
       if(dataBankFight[i][0] === persoh1){
@@ -1468,7 +1468,7 @@ bot.on('message', message => { // !!heal
 })
 
 bot.on('message', message => {
-  if(message.content === "!!test" && message.member.roles.has("789225328370647055")){
+  if(message.content === "!!test" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
       console.log(dataBankFight)
   }
 })
