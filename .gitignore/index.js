@@ -494,8 +494,7 @@ bot.on('message', message => {
             if(typep2 === "Acier" || typep2 === "Glace" || typep2 === "Normal" || typep2 === "Roche" || typep2 === "Ténèbres"){
                 typdegz = 2
             }
-            if(typep2 === "Fée" || typep2 === "Insecte" || typep2 === "f
-               " || typep2 === "Psy" || typep2 === "Vol"){
+            if(typep2 === "Fée" || typep2 === "Insecte" || typep2 === "Poison" || typep2 === "Psy" || typep2 === "Vol"){
                 typdegz = 0.5
             }
             if(typep2 === "Spectre"){
