@@ -708,7 +708,6 @@ bot.on('message', message => {
 
 bot.on('message', message => {
     if(message.content === "!!read" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))){
-{
         dataBank = []
         dataBankPersos = []
         dataBankFight = []
