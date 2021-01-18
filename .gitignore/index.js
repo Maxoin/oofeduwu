@@ -794,7 +794,7 @@ bot.on('message', message => { //Joli Sourire
 })
 
 bot.on('message', message => { //Prio
-  if(message.content.includes("!!prio" && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
+  if(message.content.includes("!!prio") && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
     var pkmnprio1 = message.content.split(" ")[1]
     var pkmnprio2 = message.content.split(" ")[2]
     var pkmnprio3 = message.content.split(" ")[3]
@@ -1277,7 +1277,7 @@ bot.on('message', message => { //points de vies
   })    
   
 bot.on('message', message => { // !!logz
-  if(message.content.includes("!!logz " && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
+  if(message.content.includes("!!logz ") && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
     var nomalog = message.content.split(" ")[1]
     for(var i = 0; i < dataBankPersos.length; i++){
       if(dataBankPersos[i][0] === nomalog){
