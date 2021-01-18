@@ -494,7 +494,8 @@ bot.on('message', message => {
             if(typep2 === "Acier" || typep2 === "Glace" || typep2 === "Normal" || typep2 === "Roche" || typep2 === "Ténèbres"){
                 typdegz = 2
             }
-            if(typep2 === "Fée" || typep2 === "Insecte" || typep2 === "Poison" || typep2 === "Psy" || typep2 === "Vol"){
+            if(typep2 === "Fée" || typep2 === "Insecte" || typep2 === "f
+               " || typep2 === "Psy" || typep2 === "Vol"){
                 typdegz = 0.5
             }
             if(typep2 === "Spectre"){
@@ -763,7 +764,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => {
-    if(message.content.includes("!!poison " && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
+    if(message.content.includes("!!poison ") && message.member.roles.cache.some(r=>["Admin"].includes(r.name))) {
         var pkmnpoison = message.content.split(" ")[1]
         for(var ipoi = 0; ipoi < dataBankPersos.length; ipoi++){
           if(dataBankPersos[ipoi][0] === pkmnpoison){
