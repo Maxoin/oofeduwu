@@ -1411,7 +1411,8 @@ bot.on('message', message => { // !!heal
                 )
             }
       })
-    )}else{ //Montant précis
+    )}
+      if(typeheal >= 0){ //Montant précis
           Number(typeheal)
           var healfinal = Math.round(((pvtr*1)+typeheal) * 1) / 1
           if(healfinal >= pvh){
