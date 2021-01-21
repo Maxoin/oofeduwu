@@ -1418,16 +1418,16 @@ bot.on('message', message => { // !!heal
             healfinal = pvh
             }
           bot.channels.get(channelStockIdFight).fetchMessages()
-    .then(messages =>
-      messages.forEach(function(message, idMsg) {
-        if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
-                .then(messages => 
-                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
-                )
-            }
-      })
-    )}
+            .then(messages =>
+              messages.forEach(function(message, idMsg) {
+                if(message.content.split(' * ')[0] === persoh1) {
+                    bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+                        .then(messages => 
+                            message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
+                        )
+                    }
+              })
+            )}
           }
     if(typeheal === "Oran"){  //Oran
       for(var i = 0; i < dataBankPersos.length; i++){
@@ -1481,8 +1481,7 @@ bot.on('message', message => { // !!heal
     setTimeout(() =>{
       message.channel.send(persoh1 + " : " + healfinal)
     }, 1000)
-  }
-})
+  })
 
 bot.on('message', message => {
   if(message.content === "!!test" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
