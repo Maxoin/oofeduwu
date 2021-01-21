@@ -680,7 +680,7 @@ bot.on('message', message => {
               }
             }
             message.channel.send(nom2 + " : " + pvf)
-          }, 1000)
+          }, 2000)
             readFight()
         }
         if(probahit <= hit && testvit <= vit1){
