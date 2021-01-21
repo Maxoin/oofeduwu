@@ -1411,7 +1411,24 @@ bot.on('message', message => { // !!heal
                 )
             }
       })
+    )}else{ //Montant précis
+          Number(typeheal)
+          var healfinal = Math.round(((pvtr*1)+typeheal) * 1) / 1
+          if(healfinal >= pvh){
+            healfinal = pvh
+            }
+          bot.channels.get(channelStockIdFight).fetchMessages()
+    .then(messages =>
+      messages.forEach(function(message, idMsg) {
+        if(message.content.split(' * ')[0] === persoh1) {
+            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+                .then(messages => 
+                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
+                )
+            }
+      })
     )}
+          }
     if(typeheal === "Oran"){  //Oran
       for(var i = 0; i < dataBankPersos.length; i++){
         if(dataBankPersos[i][0] === persoh1){
