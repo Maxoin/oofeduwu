@@ -680,7 +680,7 @@ bot.on('message', message => {
               }
             }
             message.channel.send(nom2 + " : " + pvf)
-          }, 2000)
+          }, 1000)
             readFight()
         }
         if(probahit <= hit && testvit <= vit1){
@@ -1497,7 +1497,12 @@ bot.on('message', message => { // !!healP
     Number(pvtr)
     Number(healfinal)
     if(typeheal >= 0){ //Montant précis
-      var healfinal = Math.round(((pvtr*1)+typeheal) * 1) / 1
+      var healfinal = Math.round(((pvtr*1)+typeheal) * 1)
+      for(var i = 0; i < dataBankPersos.length; i++){
+        if(dataBankPersos[i][0] === persoh1){
+          var pvh = dataBankPersos[i][3]
+        }
+      }
       if(healfinal >= pvh){
         healfinal = pvh
         }
