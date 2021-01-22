@@ -1395,7 +1395,7 @@ bot.on('message', message => { // !!heal
       }
       var numpvf = Number(pvf)
       var moitmoit = Math.round((pvuwu / 2) * 1 ) / 1
-      var pvfinm = Math.round(numpvf + moitmoit)
+      var pvfinm = numpvf + moitmoit
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
@@ -1418,7 +1418,7 @@ bot.on('message', message => { // !!heal
       }
       var numnum = Number(number)
       var numnumbaz = Number(pvf)
-      var newpv = Math.round(numnumbaz + numnum)
+      var newpv = numnumbaz + numnum
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
