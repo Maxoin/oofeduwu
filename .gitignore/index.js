@@ -1389,7 +1389,7 @@ bot.on('message', message => { // !!heal
         }
       }
       for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
-        if(dataBankPersos[pkmnpva][0] === pkmnpv1){
+        if(dataBankPersos[pkmnpva][0] === nompkmn){
           var nomuwu = dataBankPersos[pkmnpva][0]
           var pvuwu = dataBankPersos[pkmnpva][3]
         }
