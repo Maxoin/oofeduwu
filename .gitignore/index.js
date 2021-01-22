@@ -1379,6 +1379,12 @@ bot.on('message', message => { // !!heal
   if(message.content.includes("!!heal ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
     var nompkmn = message.content.split(" ")[1]
     var number = message.content.split(" ")[2]
+    for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
+      if(dataBankPersos[pkmnpva][0] === nompkmn){
+        var nomuwu = dataBankPersos[pkmnpva][0]
+        var pvuwu = dataBankPersos[pkmnpva][3]
+      }
+    }
     if(number === "m"){
       for(var i = 0; i < dataBankFight.length; i++){
         if(dataBankFight[i][0] === nompkmn){
@@ -1387,15 +1393,12 @@ bot.on('message', message => { // !!heal
           var pvf = dataBankFight[i][2]
         }
       }
-      for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
-        if(dataBankPersos[pkmnpva][0] === nompkmn){
-          var nomuwu = dataBankPersos[pkmnpva][0]
-          var pvuwu = dataBankPersos[pkmnpva][3]
-        }
-      }
       var numpvf = Number(pvf)
       var moitmoit = Math.round((pvuwu / 2) * 1 ) / 1
       var pvfinm = numpvf + moitmoit
+      if(pvfinm >= pvuwu){
+        pvfinm = pvuwu
+      }
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
@@ -1420,6 +1423,9 @@ bot.on('message', message => { // !!heal
       var numnum = Number(number)
       var numnumbaz = Number(pvf)
       var newpv = numnumbaz + numnum
+      if(newpv >= pvuwu){
+        newpv = pvuwu
+      }
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
