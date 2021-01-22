@@ -687,17 +687,6 @@ bot.on('message', message => {
             message.channel.send("L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
             message.delete()
             message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
-            setTimeout(() =>{
-              readFight()
-            }, 1000)
-            setTimeout(() =>{
-              for(var i = 0; i < dataBankFight.length; i++){
-                if(dataBankFight[i][0] === nom2){
-                  var pvf = dataBankFight[i][2]
-                }
-              }
-              message.channel.send(nom2 + " : " + pvf)
-            }, 2000)
           }
         }
         if(probahit >= hit){
@@ -1319,6 +1308,7 @@ bot.on('message', message => { // !!dégats
       })
     )
     readFight()
+    message.channel.send(nomf + " : " + vierest)
   }
 })
 
@@ -1350,6 +1340,7 @@ bot.on('message', message => { // !!dégats vit
     )
     readFight()
   }, 1000)
+  message.channel.send(nomf + " : " + vierest)
   }
 })
 
@@ -1381,147 +1372,62 @@ bot.on('message', message => { // !!dégats poison
     )
     readFight()
   }, 1000)
+  message.channel.send(nomf + " : " + vierest)
   }
 })
 
 bot.on('message', message => { // !!heal
   if(message.content.includes("!!heal ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
-    var persoh1 = message.content.split(" ")[1]
-    for(var i = 0; i < dataBankFight.length; i++){
-      if(dataBankFight[i][0] === persoh1){
-        var typeosef = dataBankFight[i][1]
-        var pvtr = dataBankFight[i][2]
+    var nompkmn = message.content.split(" ")[1]
+    var number = message.content.split(" ")[2]
+    if(number === "m"){
+      for(var i = 0; i < dataBankFight.length; i++){
+        if(dataBankFight[i][0] === nompkmn){
+          var nomf = dataBankFight[i][0]
+          var typef = dataBankFight[i][1]
+          var pvf = dataBankFight[i][2]
+        }
       }
+      for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
+        if(dataBankPersos[pkmnpva][0] === pkmnpv1){
+          var nomuwu = dataBankPersos[pkmnpva][0]
+          var pvuwu = dataBankPersos[pkmnpva][3]
+        }
+      }
+      var moitmoit = Math.round(pvuwu /= 2)
+      var pvfinm = Math.round(pvf += moitmoit)
+      .then(messages =>
+        messages.forEach(function(message, idMsg) {
+          if (message.content.split(' * ')[0] === nomz) {
+              bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+                  .then(messages => 
+                      message.edit(nomf + " * " + typef + " * " + pvfinm)
+                  )
+              }
+        })
+      )
+      message.channel.send(nomf + " est soignée ! (**" + pvfinm + "**PV(s) restant(s) !)")
+    }else{
+      Number(number)
+      for(var i = 0; i < dataBankFight.length; i++){
+        if(dataBankFight[i][0] === nompkmn){
+          var nomf = dataBankFight[i][0]
+          var typef = dataBankFight[i][1]
+          var pvf = dataBankFight[i][2]
+        }
+      }
+      var newpv = Math.round(pvf += number)
+      .then(messages =>
+        messages.forEach(function(message, idMsg) {
+          if (message.content.split(' * ')[0] === nomz) {
+              bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+                  .then(messages => 
+                      message.edit(nomf + " * " + typef + " * " + newpv)
+                  )
+              }
+        })
+      )
+      message.channel.send(nomf + " est soignée ! (**" + newpv + "**PV(s) restant(s) !)")
     }
-    var typeheal = message.content.split(" ")[2]
-    Number(pvtr)
-    if(typeheal === "Full" || typeheal === "full"){ //Full
-      for(var i = 0; i < dataBankPersos.length; i++){
-        if(dataBankPersos[i][0] === persoh1){
-          var pvh = dataBankPersos[i][3]
-        }
-      }
-      var healfinal = pvh
-      bot.channels.get(channelStockIdFight).fetchMessages()
-    .then(messages =>
-      messages.forEach(function(message, idMsg) {
-        if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
-                .then(messages => 
-                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
-                )
-            }
-      })
-    )}
-    if(typeheal >= 0){ //Montant précis
-      var healfinal = Math.round(((pvtr*1)+typeheal) * 1) / 1
-      if(healfinal >= pvh){
-        healfinal = pvh
-        }
-      bot.channels.get(channelStockIdFight).fetchMessages()
-        .then(messages =>
-          messages.forEach(function(message, idMsg) {
-            if(message.content.split(' * ')[0] === persoh1) {
-                bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
-                    .then(messages => 
-                        message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
-                    )
-                }
-          })
-        )}
-    if(typeheal === "Oran"){  //Oran
-      for(var i = 0; i < dataBankPersos.length; i++){
-        if(dataBankPersos[i][0] === persoh1){
-          var pvh = dataBankPersos[i][3]
-        }
-      }
-      var healfinal = Math.round(((pvtr*1)+100) * 1) / 1
-      console.log(healfinal)
-      if(healfinal >= pvh){
-        healfinal = pvh
-      }
-      bot.channels.get(channelStockIdFight).fetchMessages()
-    .then(messages =>
-      messages.forEach(function(message, idMsg) {
-        if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
-                .then(messages => 
-                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
-                )
-            }
-      })
-    )}
-    if(typeheal === "1/2"){ 
-      for(var i = 0; i < dataBankPersos.length; i++){
-        if(dataBankPersos[i][0] === persoh1){
-          var pvh = dataBankPersos[i][3]
-        }
-      }
-      var midhp = Math.round(((pvh*1)/2) * 1) / 1
-      var healfinal = Math.round(((pvtr*1)+midhp) * 1) / 1
-      console.log(healfinal)
-      if(healfinal >= pvh){
-        healfinal = pvh
-      }
-      bot.channels.get(channelStockIdFight).fetchMessages()
-    .then(messages =>
-      messages.forEach(function(message, idMsg) {
-        if(message.content.split(' * ')[0] === persoh1) {
-            bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
-                .then(messages => 
-                    message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
-                )
-            }
-      })
-    )}
-    readFight()
-    console.log(typeheal + " et " + pvtr)
-    message.channel.send(persoh1 + " est soigné.")
-    message.delete()
-    setTimeout(() =>{
-      message.channel.send(persoh1 + " : " + healfinal)
-    }, 1000)
-  }
-})
-
-bot.on('message', message => { // !!healP
-  if(message.content.includes("!!healp ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
-    var persoh1 = message.content.split(" ")[1]
-    for(var i = 0; i < dataBankFight.length; i++){
-      if(dataBankFight[i][0] === persoh1){
-        var typeosef = dataBankFight[i][1]
-        var pvtr = dataBankFight[i][2]
-      }
-    }
-    var typeheal = message.content.split(" ")[2]
-    Number(pvtr)
-    Number(healfinal)
-    if(typeheal >= 0){ //Montant précis
-      var healfinal = Math.round(((pvtr*1)+typeheal) * 1)
-      for(var i = 0; i < dataBankPersos.length; i++){
-        if(dataBankPersos[i][0] === persoh1){
-          var pvh = dataBankPersos[i][3]
-        }
-      }
-      if(healfinal >= pvh){
-        healfinal = pvh
-        }
-      bot.channels.get(channelStockIdFight).fetchMessages()
-        .then(messages =>
-          messages.forEach(function(message, idMsg) {
-            if(message.content.split(' * ')[0] === persoh1) {
-                bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
-                    .then(messages => 
-                        message.edit(persoh1 + " * " + typeosef + " * " + healfinal)
-                    )
-                }
-          })
-        )}
-      }
-  })
-
-bot.on('message', message => {
-  if(message.content === "!!test" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
-      console.log(dataBankFight)
   }
 })
