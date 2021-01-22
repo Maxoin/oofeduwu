@@ -1402,7 +1402,7 @@ bot.on('message', message => { // !!heal
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
-          if (message.content.split(' * ')[0] === nomf) {
+          if (message.content.split(' * ')[1] === nomf) {
               bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                   .then(messages => 
                       message.edit(nomf + " * " + typef + " * " + pvfinm)
@@ -1423,13 +1423,14 @@ bot.on('message', message => { // !!heal
       var numnum = Number(number)
       var numnumbaz = Number(pvf)
       var newpv = numnumbaz + numnum
+      console.log("Soigné de " + newpv)
       if(newpv >= pvuwu){
         newpv = pvuwu
       }
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
-          if (message.content.split(' * ')[0] === nomf) {
+          if (message.content.split(' * ')[1] === nomf) {
               bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                   .then(messages => 
                       message.edit(nomf + " * " + typef + " * " + newpv)
