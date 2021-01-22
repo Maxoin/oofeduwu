@@ -1408,6 +1408,7 @@ bot.on('message', message => { // !!heal
         })
       )
       message.channel.send(nomf + " est soignée ! (**" + pvfinm + "**PV(s) restant(s) !)")
+      readFight()
     }else{
       for(var i = 0; i < dataBankFight.length; i++){
         if(dataBankFight[i][0] === nompkmn){
@@ -1431,6 +1432,7 @@ bot.on('message', message => { // !!heal
         })
       )
       message.channel.send(nomf + " est soignée ! (**" + newpv + "**PV(s) restant(s) !)")
+      readFight()
     }
   }
 })
