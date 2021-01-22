@@ -1445,5 +1445,6 @@ bot.on('message', message => { // !!heal
         readFight()
       }, 3000)
     }
+    message.delete()
   }
 })
