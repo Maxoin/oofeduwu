@@ -679,7 +679,6 @@ bot.on('message', message => {
                 var pvf = dataBankFight[i][2]
               }
             }
-            message.channel.send(nom2 + " : " + pvf)
           }, 1000)
             readFight()
         }
