@@ -1394,12 +1394,13 @@ bot.on('message', message => { // !!heal
           var pvuwu = dataBankPersos[pkmnpva][3]
         }
       }
-      var moitmoit = Math.round(pvuwu /= 2)
+      Number(pvf)
+      var moitmoit = Math.round((pvuwu /= 2) * 1 ) / 1
       var pvfinm = Math.round(pvf += moitmoit)
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
-          if (message.content.split(' * ')[0] === nomz) {
+          if (message.content.split(' * ')[0] === nomf) {
               bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                   .then(messages => 
                       message.edit(nomf + " * " + typef + " * " + pvfinm)
@@ -1417,11 +1418,12 @@ bot.on('message', message => { // !!heal
           var pvf = dataBankFight[i][2]
         }
       }
+      Number(pvf)
       var newpv = Math.round(pvf += number)
       bot.channels.get(channelStockIdFight).fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
-          if (message.content.split(' * ')[0] === nomz) {
+          if (message.content.split(' * ')[0] === nomf) {
               bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
                   .then(messages => 
                       message.edit(nomf + " * " + typef + " * " + newpv)
