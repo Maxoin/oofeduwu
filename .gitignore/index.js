@@ -731,7 +731,7 @@ bot.on('message', message => {
           var hit = (precp / esqui) * prec
           var probahit = Math.floor(Math.random() * Math.floor(100))
           if(probahit <= hit){
-            message.channel.send(":star: L'attaque atteind sa cible ! !")
+            message.channel.send(":star: L'attaque atteind sa cible !")
             message.delete()
         }
           if(probahit >= hit){
