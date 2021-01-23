@@ -130,9 +130,8 @@ bot.on('message', message => { //help
         .addField("Statut", "A ajouter à la commande d'attaque : [Brul]/[Para]\nCommandes à part : !!sommeil (au tour ou il s'endort) - !!para (tout les tour de sa paralysie) - !!poison [nom du pokemon]")
         .addField("Talents", "A ajouter à la commande d'attaque (dans les situations qui l'exiges) : [Rideau_neige] - [Brasier] - [Torrent] - [Normalise] - [Adaptabilité]\nCommandes à part : !!statik - !!Joli Sourire")
         .addField("PV Temps Réels", "Si un gens n'est pas repertorié dans la base de donnée des PV : ``!!logz [nom_du_perso]``")
-        .addField("Soin", "``!!heal [nom_de_perso] [type_de_heal]``\nTypes de heals : ``[Full]``/``[Oran]``(100pv)/``[1/2]``")
-        .addBlankField()
-        .addField("!!!", "N'effectuer que des commandes avec les attaques offensives")  
+        .addField("Soin", "``!!heal [nom_de_perso] [type_de_heal]``\nTypes de heals : ``m`` (Pour la moitiée des pvs max)\n``[nombre]`` (pour définir la quantité de PVs du Heal)")
+        .addField("Bléssure", "``!!hurt [nom_de_perso] [type_de_bléssures]``\nTypes de bléssure : ``m`` (Pour la moitiée des pvs max)\n``[nombre]`` (pour définir la quantité de PVs de la bléssure)")
         .setColor("#c40000")
         .setFooter("Amusez-vous bien ! - Maxoin | Baz")
       
@@ -651,14 +650,50 @@ bot.on('message', message => {
             }
         }
         if(spec === "Physique"){
-            var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
-            var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+              var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+              var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+
+              console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
+          var hit = (precp / esqui) * prec
+          var probahit = Math.floor(Math.random() * Math.floor(100))
+          console.log(probahit + "/" + hit)
+          if(crit >= 80 && (probahit <= hit || probahit === hit)){
+              degz *= 2
+              message.channel.send("**Coup Critique !**")
+          }   
+          var testvit = vit2 * 2
+          if(probahit <= hit && testvit > vit1){
+            message.channel.send(":boom: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+            message.delete()
+            setTimeout(() =>{
+              readFight()
+            }, 1000)
+            setTimeout(() =>{
+              for(var i = 0; i < dataBankFight.length; i++){
+                if(dataBankFight[i][0] === nom2){
+                  var pvf = dataBankFight[i][2]
+                }
+              }
+            }, 1000)
+              readFight()
+          }
+          if(probahit <= hit && testvit <= vit1){
+              message.channel.send(":boom: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+              message.delete()
+              message.channel.send(":boom: La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
+            }
+          if(probahit >= hit){
+              message.channel.send(":cloud_tornado: " + pkmn1 + " rate son attaque !")
+              message.delete()
+          }
         }
         if(spec === "Special"){
             var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1
             var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
-        }
-        console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
+
+            var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+            var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
+            console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
         var hit = (precp / esqui) * prec
         var probahit = Math.floor(Math.random() * Math.floor(100))
         console.log(probahit + "/" + hit)
@@ -668,7 +703,7 @@ bot.on('message', message => {
         }   
         var testvit = vit2 * 2
         if(probahit <= hit && testvit > vit1){
-          message.channel.send(":boom: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+          message.channel.send(":cyclone: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
           message.delete()
           setTimeout(() =>{
             readFight()
@@ -683,17 +718,29 @@ bot.on('message', message => {
             readFight()
         }
         if(probahit <= hit && testvit <= vit1){
-            message.channel.send(":boom: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+            message.channel.send(":cyclone: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
             message.delete()
-            message.channel.send(":boom: La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
+            message.channel.send(":cyclone: La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
           }
-        }
         if(probahit >= hit){
-            message.channel.send(pkmn1 + " rate son attaque !")
+            message.channel.send(":cloud_tornado:  " + pkmn1 + " rate son attaque !")
             message.delete()
         }
-    }
-  )
+        }
+        if(spec === "Statut"){
+          var hit = (precp / esqui) * prec
+          var probahit = Math.floor(Math.random() * Math.floor(100))
+          if(probahit <= hit){
+            message.channel.send(":star: L'attaque atteind sa cible ! !")
+            message.delete()
+        }
+          if(probahit >= hit){
+            message.channel.send(":cloud_tornado: " + pkmn1 + " rate son attaque !")
+            message.delete()
+        }
+        }
+  }
+})
 
 bot.on('message', message => {
     if(message.content === "!!read" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181"){
