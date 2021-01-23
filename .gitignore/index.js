@@ -753,6 +753,7 @@ bot.on('message', message => {
 
 bot.on('message', message => {
     if(message.content.includes("!!poison ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
+        readFight()
         var pkmnpoison = message.content.split(" ")[1]
         for(var ipoi = 0; ipoi < dataBankPersos.length; ipoi++){
           if(dataBankPersos[ipoi][0] === pkmnpoison){
@@ -1306,8 +1307,9 @@ bot.on('message', message => { // !!dégats
             }
       })
     )
-    readFight()
-    message.channel.send(nomf + " : " + vierest)
+    setTimeout(() => {
+      message.channel.send(nomf + " : " + vierest)
+    }, 2000)
   }
 })
 
@@ -1339,7 +1341,9 @@ bot.on('message', message => { // !!dégats vit
     )
     readFight()
   }, 1000)
-  message.channel.send(nomf + " : " + vierest)
+  setTimeout(() => {
+    message.channel.send(nomf + " : " + vierest)
+  }, 2000)
   }
 })
 
@@ -1512,9 +1516,6 @@ bot.on('message', message => { // !!hurt
         })
       )
       message.channel.send(nomf + " est bléssé de " + numnum + " points de dégàts !")
-      setTimeout(() =>{
-        readFight()
-      }, 3000)
     }
     message.delete()
   }
