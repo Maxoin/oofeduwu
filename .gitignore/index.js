@@ -1282,7 +1282,7 @@ bot.on('message', message => { // !!logz
 })
 
 bot.on('message', message => { // !!dégats
-  if(message.content.includes("L'attaque fait ") && message.author.id === "444830923381407764"){
+  if(message.content.includes("points de dégàts") && message.author.id === "444830923381407764"){
     var daigz = message.content.split("**")[1]
     var nomz = message.content.split("**")[3]
     console.log(daigz + " à " + nomz)
@@ -1425,7 +1425,7 @@ bot.on('message', message => { // !!heal
       var numnum = Number(number)
       var numnumbaz = Number(pvf)
       var newpv = numnumbaz + numnum
-      console.log("Soigné de " + newpv)
+      console.log("Soigné à " + newpv)
       if(newpv >= pvuwu){
         newpv = pvuwu
       }
@@ -1441,6 +1441,77 @@ bot.on('message', message => { // !!heal
         })
       )
       message.channel.send(nomf + " est soignée ! (**" + newpv + "**PV(s) restant(s) !)")
+      setTimeout(() =>{
+        readFight()
+      }, 3000)
+    }
+    message.delete()
+  }
+})
+
+bot.on('message', message => { // !!hurt
+  if(message.content.includes("!!hurt ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
+    var nompkmn = message.content.split(" ")[1]
+    var number = message.content.split(" ")[2]
+    for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
+      if(dataBankPersos[pkmnpva][0] === nompkmn){
+        var nomuwu = dataBankPersos[pkmnpva][0]
+        var pvuwu = dataBankPersos[pkmnpva][3]
+      }
+    }
+    if(number === "m"){
+      for(var i = 0; i < dataBankFight.length; i++){
+        if(dataBankFight[i][0] === nompkmn){
+          var nomf = dataBankFight[i][0]
+          var typef = dataBankFight[i][1]
+          var pvf = dataBankFight[i][2]
+        }
+      }
+      var numpvf = Number(pvf)
+      var moitmoit = Math.round((pvuwu / 2) * 1 ) / 1
+      var pvfinm = numpvf - moitmoit
+      if(pvfinm >= pvuwu){
+        pvfinm = pvuwu
+      }
+      bot.channels.get(channelStockIdFight).fetchMessages()
+      .then(messages =>
+        messages.forEach(function(message, idMsg) {
+          if (message.content.split(' * ')[0] === nomf) {
+              bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+                  .then(messages => 
+                      message.edit(nomf + " * " + typef + " * " + pvfinm)
+                  )
+              }
+        })
+      )
+      message.channel.send(nomf + " est bléssé de " + moitmoit + " points de dégàts !")
+      setTimeout(() =>{
+        readFight()
+      }, 3000)
+    }else{
+      for(var i = 0; i < dataBankFight.length; i++){
+        if(dataBankFight[i][0] === nompkmn){
+          var nomf = dataBankFight[i][0]
+          var typef = dataBankFight[i][1]
+          var pvf = dataBankFight[i][2]
+        }
+      }
+      var numnum = Number(number)
+      var numnumbaz = Number(pvf)
+      var newpv = numnumbaz - numnum
+      console.log("Bléssé à " + newpv)
+      bot.channels.get(channelStockIdFight).fetchMessages()
+      .then(messages =>
+        messages.forEach(function(message, idMsg) {
+          if (message.content.split(' * ')[0] === nomf) {
+              bot.channels.get(channelStockIdFight).fetchMessages(idMsg)
+                  .then(messages => 
+                      message.edit(nomf + " * " + typef + " * " + newpv)
+                  )
+              }
+        })
+      )
+      message.channel.send(nomf + " est bléssé de " + numnum + " points de dégàts !")
       setTimeout(() =>{
         readFight()
       }, 3000)
