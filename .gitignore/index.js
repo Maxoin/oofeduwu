@@ -1308,7 +1308,7 @@ bot.on('message', message => { // !!dégats
       })
     )
     setTimeout(() => {
-      message.channel.send(nomf + " : " + vierest)
+      message.channel.send(nomf + " : " + vierest + " PV(s)")
     }, 2000)
   }
 })
@@ -1342,7 +1342,7 @@ bot.on('message', message => { // !!dégats vit
     readFight()
   }, 1000)
   setTimeout(() => {
-    message.channel.send(nomf + " : " + vierest)
+    message.channel.send(nomf + " : " + vierest + " PV(s)")
   }, 2000)
   }
 })
@@ -1375,7 +1375,7 @@ bot.on('message', message => { // !!dégats poison
     )
     readFight()
   }, 1000)
-  message.channel.send(nomf + " : " + vierest)
+  message.channel.send(nomf + " : " + vierest + " PV(s)")
   }
 })
 
