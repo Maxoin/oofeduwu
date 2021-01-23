@@ -668,7 +668,7 @@ bot.on('message', message => {
         }   
         var testvit = vit2 * 2
         if(probahit <= hit && testvit > vit1){
-          message.channel.send("L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+          message.channel.send(":boom: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
           message.delete()
           setTimeout(() =>{
             readFight()
@@ -683,9 +683,9 @@ bot.on('message', message => {
             readFight()
         }
         if(probahit <= hit && testvit <= vit1){
-            message.channel.send("L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
+            message.channel.send(":boom: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
             message.delete()
-            message.channel.send("La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
+            message.channel.send(":boom: La vitesse de " + nom1 + " lui fait assainer une nouvelle attaque ! **" + degz2 + "** points de dégàts supplémentaires pour **" + nom2 + "** !")
           }
         }
         if(probahit >= hit){
@@ -714,7 +714,7 @@ bot.on('message', message => {
     if(message.content === "!!sommeil" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
         var tourdodo = Math.floor(Math.random() * Math.floor(4))
         tourdodo += 1
-        message.channel.send("Le pokemon est endormis pendant " + tourdodo + " tours !")
+        message.channel.send(":zzz: Le pokemon est endormis pendant " + tourdodo + " tours !")
         message.delete()
         }
 })
@@ -725,11 +725,11 @@ bot.on('message', message => {
         var probapara = 25
         console.log(rollpara)
         if(rollpara <= probapara || rollpara === probapara){
-            message.channel.send("Le pokemon est paralysé et ne peux pas attaquer !")
+            message.channel.send(":x: Le pokemon est paralysé et ne peux pas attaquer !")
             message.delete()
         }
         if(rollpara >= probapara){
-            message.channel.send("Le pokemon réussis à attaquer !")
+            message.channel.send(":ballot_box_with_check: Le pokemon réussis à attaquer !")
             message.delete()
         }
     }
@@ -741,11 +741,11 @@ bot.on('message', message => {
         var probastatik = 30
         console.log(rollstatik)
         if(rollstatik <= probastatik || rollstatik === probastatik){
-            message.channel.send("Le pokemon est paralysé !")
+            message.channel.send(":zap: Le pokemon est paralysé !")
             message.delete()
         }
         if(rollstatik >= probastatik){
-            message.channel.send("Le pokemon reste de marbre.")
+            message.channel.send(":white_circle: Le pokemon reste de marbre.")
             message.delete()
         }
     }
@@ -762,7 +762,7 @@ bot.on('message', message => {
           }
         }
         var pvpkmnpoison = Math.round((pvpokemonp *= 0.125) * 1) / 1
-        message.channel.send("**" + nompoison1 + "** subit **" + pvpkmnpoison + "** points dégats à cause du poison.")
+        message.channel.send(":snake: **" + nompoison1 + "** subit **" + pvpkmnpoison + "** points dégats à cause du poison.")
         message.delete()
     }
 })
@@ -773,11 +773,11 @@ bot.on('message', message => { //Joli Sourire
         var probalove = 30
         console.log(rolllove)
         if(rolllove <= probalove || rolllove === probalove){
-            message.channel.send("Le pokemon est amoureux !")
+            message.channel.send(":revolving_hearts: Le pokemon est amoureux !")
             message.delete()
         }
         if(rolllove >= probalove){
-            message.channel.send("Le pokemon reste de marbre.")
+            message.channel.send(":broken_heart: Le pokemon reste de marbre.")
             message.delete()
         }
     }
@@ -1414,7 +1414,7 @@ bot.on('message', message => { // !!heal
               }
         })
       )
-      message.channel.send(nomf + " est soignée ! (**" + pvfinm + "**PV(s) restant(s) !)")
+      message.channel.send(":sparkles: " + nomf + " est soigné(e) de " + moitmoit + "PV(s) ! (**" + pvfinm + "**PV(s) restant(s) !)")
       setTimeout(() =>{
         readFight()
       }, 3000)
@@ -1444,7 +1444,7 @@ bot.on('message', message => { // !!heal
               }
         })
       )
-      message.channel.send(nomf + " est soignée ! (**" + newpv + "**PV(s) restant(s) !)")
+      message.channel.send(":sparkles: " + nomf + " est soigné(e) de " + numnum + " PV(s) ! (**" + newpv + "**PV(s) restant(s) !)")
       setTimeout(() =>{
         readFight()
       }, 3000)
@@ -1488,7 +1488,7 @@ bot.on('message', message => { // !!hurt
               }
         })
       )
-      message.channel.send(nomf + " est bléssé de " + moitmoit + " points de dégàts !")
+      message.channel.send(":boom: **" + moitmoit + "** points de dégàts ont été infligés à **" + nomf + "** !")
       setTimeout(() =>{
         readFight()
       }, 3000)
@@ -1515,7 +1515,7 @@ bot.on('message', message => { // !!hurt
               }
         })
       )
-      message.channel.send(nomf + " est bléssé de " + numnum + " points de dégàts !")
+      message.channel.send(":boom: **" + numnum + "** points de dégàts ont été infligés à **" + nomf + "** !")
     }
     message.delete()
   }
