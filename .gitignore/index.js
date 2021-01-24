@@ -1567,3 +1567,32 @@ bot.on('message', message => { // !!hurt
     message.delete()
   }
 })
+bot.on('message', message => { // !!météo
+  if(message.content.includes("!!météo ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
+    bot.channels.get("802821244986064926").fetchMessages()
+      .then(messages =>
+        messages.forEach(function(message, idMsg) {
+          if (message.content.includes("aujourd'hui !")) {
+              bot.channels.get("802821244986064926").fetchMessages(idMsg)
+                  .then(messages => 
+                      message.delete()
+                  )
+              }
+        })
+      )
+    var météo = Math.floor(Math.random() * Math.floor(100))
+    if(météo <= 25){
+      bot.channels.get("802821244986064926").send("Les rayons du soleil sont forts, aujourd'hui !")
+    }
+    if(météo >= 25 && météo <= 50){
+      bot.channels.get("802821244986064926").send("Le ciel bleu azur est magnifique, aujourd'hui !")
+    }
+    if(météo >= 50 && météo <= 75){
+      bot.channels.get("802821244986064926").send("Le temps est grisatre et un peu humide, aujourd'hui !")
+    }
+    if(météo >= 75){
+      bot.channels.get("802821244986064926").send("La pluie a l'air d'être programmée pour aujourd'hui !")
+    }
+    message.delete()
+  }
+})
