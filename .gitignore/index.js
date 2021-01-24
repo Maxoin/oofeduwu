@@ -702,6 +702,9 @@ bot.on('message', message => {
             message.channel.send("**Coup Critique !**")
         }   
         var testvit = vit2 * 2
+        if(spek === "Fixe"){
+          degz = puis
+        }
         if(probahit <= hit && testvit > vit1){
           message.channel.send(":cyclone: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
           message.delete()
@@ -716,9 +719,6 @@ bot.on('message', message => {
             }
           }, 1000)
             readFight()
-        }
-        if(spek === "Fixe"){
-          degz = puis
         }
         if(probahit <= hit && testvit <= vit1){
             message.channel.send(":cyclone: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
@@ -1571,7 +1571,7 @@ bot.on('message', message => { // !!hurt
   }
 })
 bot.on('message', message => { // !!météo
-  if(message.content.includes("!!météo ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
+  if(message.content.includes("!!météo") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
     bot.channels.get("802821244986064926").fetchMessages()
       .then(messages =>
         messages.forEach(function(message, idMsg) {
