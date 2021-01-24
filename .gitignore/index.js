@@ -153,6 +153,7 @@ bot.on('message', message => {
             var puis = dataBank[i][2]
             var spec = dataBank[i][3]
             var prec = dataBank[i][4]
+            var spek = dataBank[i][5]
           }
         }
         for(var ip = 0; ip < dataBankPersos.length; ip++){
@@ -691,13 +692,12 @@ bot.on('message', message => {
             var degz = Math.round((((((niveau1*0.4)+2)*attakS1*puis)/(defS2*50)+2)*(typdegz*stab)) * 1) / 1
             var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
 
-            var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
-            var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
             console.log("Type : " + type + " & " + typdegz + " Crit = " + crit)
         var hit = (precp / esqui) * prec
         var probahit = Math.floor(Math.random() * Math.floor(100))
         console.log(probahit + "/" + hit)
-        if(crit >= 80 && (probahit <= hit || probahit === hit)){
+        console.log(spek)
+        if(crit >= 80 && (probahit <= hit || probahit === hit && spek === "undefined")){
             degz *= 2
             message.channel.send("**Coup Critique !**")
         }   
@@ -716,6 +716,9 @@ bot.on('message', message => {
             }
           }, 1000)
             readFight()
+        }
+        if(spek === "Fixe"){
+          degz = puis
         }
         if(probahit <= hit && testvit <= vit1){
             message.channel.send(":cyclone: L'attaque fait **" + degz + "** points de dégàts à **" + nom2 + "** !")
@@ -742,7 +745,7 @@ bot.on('message', message => {
   }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Read
     if(message.content === "!!read" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181"){
         dataBank = []
         dataBankPersos = []
@@ -757,7 +760,7 @@ bot.on('message', message => {
     }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Sommeil
     if(message.content === "!!sommeil" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
         var tourdodo = Math.floor(Math.random() * Math.floor(4))
         tourdodo += 1
@@ -766,7 +769,7 @@ bot.on('message', message => {
         }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Paralysie
     if(message.content === "!!para" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
         var rollpara = Math.floor(Math.random() * Math.floor(100))
         var probapara = 25
@@ -782,7 +785,7 @@ bot.on('message', message => {
     }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Statik
     if(message.content === "!!statik" && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
         var rollstatik = Math.floor(Math.random() * Math.floor(100))
         var probastatik = 30
@@ -798,7 +801,7 @@ bot.on('message', message => {
     }
 })
 
-bot.on('message', message => {
+bot.on('message', message => { //Poison
     if(message.content.includes("!!poison ") && message.author.id === "395678267207843872" || message.author.id === "451782521114460181") {
         readFight()
         var pkmnpoison = message.content.split(" ")[1]
