@@ -697,7 +697,7 @@ bot.on('message', message => {
         var probahit = Math.floor(Math.random() * Math.floor(100))
         console.log(probahit + "/" + hit)
         console.log(spek)
-        if(crit >= 80 && (probahit <= hit || probahit === hit && spek === "undefined")){
+        if(crit >= 80 && (probahit <= hit || probahit === hit && spek === undefined)){
             degz *= 2
             message.channel.send("**Coup Critique !**")
         }   
