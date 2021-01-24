@@ -1583,7 +1583,7 @@ bot.on('message', message => { // !!météo
               }
         })
       )
-    var météo = Math.floor(Math.random() * Math.floor(100))
+    var météo = Math.floor(Math.random() * Math.floor(175))
     if(météo <= 25){
       bot.channels.get("802821244986064926").send("Les rayons du soleil sont forts, aujourd'hui !")
     }
@@ -1591,9 +1591,18 @@ bot.on('message', message => { // !!météo
       bot.channels.get("802821244986064926").send("Le ciel bleu azur est magnifique, aujourd'hui !")
     }
     if(météo >= 50 && météo <= 75){
-      bot.channels.get("802821244986064926").send("Le temps est grisatre et un peu humide, aujourd'hui !")
+      bot.channels.get("802821244986064926").send("Le temps est grisâtre et un peu humide, aujourd'hui !")
     }
-    if(météo >= 75){
+    if(météo >= 75 && météo <= 100){
+      bot.channels.get("802821244986064926").send("Quelle chance, on dirait bien qu'il neige aujourd'hui !")
+    }
+    if(météo >= 100 && météo <= 125){
+      bot.channels.get("802821244986064926").send("Le temps est dégagé mais de petites averses sont à prévoir, aujourd'hui !")
+    }
+    if(météo >= 125 && météo <= 150){
+      bot.channels.get("802821244986064926").send("Le soleil est de sortie ! Il fait lourd aujourd'hui !")
+    }
+    if(météo >= 150){
       bot.channels.get("802821244986064926").send("La pluie a l'air d'être programmée pour aujourd'hui !")
     }
     message.delete()
