@@ -118,6 +118,7 @@ bot.on('ready',() => {
 })
 
 bot.login(process.env.tokkk);
+
 bot.on('message', message => { //help
     if(message.content === "!!help" && message.author.id === "395678267207843872" || message.content === "!!help" && message.author.id === "451782521114460181") {
       var embed = new Discord.RichEmbed()
@@ -482,6 +483,9 @@ bot.on('message', message => {
             stab = 2
         }
         var typdegz = 1
+///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////TYPES/////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
         if(type === "Acier"){
             if(typep2 === "Fée" || typep2 === "Glace"|| typep2 === "Roche"){
                 typdegz = 2
@@ -582,6 +586,17 @@ bot.on('message', message => {
                 typdegz = 0
             }
         }
+        if(type === "PlanteCombat"){
+          if(typep2 === "Vol"){
+              typdegz = 4
+          }
+          if(typep2 === "Poison" || typep2 === "Feu" || typep2 === "Psy" || typep2 === "Glace" || typep2 === "Fée"){
+              typdegz = 2
+          }
+          if(typep2 === "Sol" || typep2 === "Roche" || typep2 === "Eau" || typep2 === "Plante" || typep2 === "Elektrik" || typep2 === "Ténèbres"){
+              typdegz = 0.5
+          }
+        }
         if(type === "Poison"){
             if(typep2 === "Plante"){
                 typdegz = 2
@@ -623,6 +638,20 @@ bot.on('message', message => {
                 typdegz = 0
             }
         }
+        if(type === "SolDragon"){
+          if(typep2 === "Glace"){
+              typdegz = 4
+          }
+          if(typep2 === "Dragon" || typep2 === "Fée"){
+              typdegz = 2
+          }
+          if(typep2 === "Poison" || typep2 === "Roche" || typep2 === "Feu"){
+              typdegz = 0.5
+          }
+          if(typep2 === "Electrik"){
+              typdegz = 0
+          }
+        }
         if(type === "Spectre"){
             if(typep2 === "Psy" || typep2 === "Spectre"){
                 typdegz = 2
@@ -650,6 +679,9 @@ bot.on('message', message => {
                 typdegz = 0.5
             }
         }
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////ATTAQUES////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
         if(spec === "Physique"){
               var degz = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
               var degz2 = Math.round((((((niveau1*0.4)+2)*attak1*puis)/(def2*50)+2)*(typdegz*stab)) * 1) / 1
@@ -1570,6 +1602,7 @@ bot.on('message', message => { // !!hurt
     message.delete()
   }
 })
+
 bot.on('message', message => { // !!météo
   if(message.content.includes("!!météo") && message.author.id === "395678267207843872" || message.content.includes("!!météo") && message.author.id === "451782521114460181") {
     bot.channels.get("802821244986064926").fetchMessages()
