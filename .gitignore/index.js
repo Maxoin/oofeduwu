@@ -567,6 +567,17 @@ bot.on('message', message => {
                 typdegz = 0.5
             }
         }
+        if(type === "InsectePoison"){
+          if(typep2 === "Vol" || typep2 === "Roche" || typep2 === "Feu" || typep2 === "Psy"){
+              typdegz = 2
+          }
+          if(typep2 === "Poison" || typep2 === "Insecte" || typep2 === "Fée"){
+              typdegz = 0.5
+          }
+          if(typep2 === "Combat" || typep2 === "Plante"){
+            typdegz = 0.25
+          }
+        }
         if(type === "Normal"){
             if(typep2 === "Acier" || typep2 === "Roche"){
                 typdegz = 0.5
@@ -626,6 +637,17 @@ bot.on('message', message => {
             if(typep2 === "Acier" || typep2 === "Combat" || typep2 === "Sol"){
                 typdegz = 0.5
             }
+        }
+        if(type === "RocheDragon"){
+          if(typep2 === "Combat" || typep2 === "Sol" || typep2 === "Acier" || typep2 === "Glace" || typep2 === "Dragon" || typep2 === "Fée"){
+              typdegz = 2
+          }
+          if(typep2 === "Normal" || typep2 === "Vol" || typep2 === "Poison" || typep2 === "Elektrik"){
+              typdegz = 0.5
+          }
+          if(typep2 === "Feu"){
+              typdegz = 0.25
+          }
         }
         if(type === "Sol"){
             if(typep2 === "Acier" || typep2 === "Electrik" || typep2 === "Feu" || typep2 === "Poison" || typep2 === "Roche"){
