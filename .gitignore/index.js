@@ -120,7 +120,7 @@ bot.on('ready',() => {
 bot.login(process.env.tokkk);
 
 bot.on('message', message => { //help
-    if(message.content === "!!help" && message.author.id === "395678267207843872" || message.content === "!!help" && message.author.id === "451782521114460181") {
+    if(message.content === "!!help" && message.author.id === "395678267207843872" || message.content === "!!help" && message.author.id === "451782521114460181" || message.content === "!!help" && message.author.id === "238760101232508928") {
       var embed = new Discord.RichEmbed()
         .setTitle("**Koman ssamarsh ?**")
         .setDescription("Petit post-it pour pas oublier comment que le bot fonctionne")
@@ -141,7 +141,7 @@ bot.on('message', message => { //help
   })
 
 bot.on('message', message => {
-    if(message.content.includes("!!atk ") && message.author.id === "395678267207843872" || message.content.includes("!!atk ")  && message.author.id === "451782521114460181") {
+    if(message.content.includes("!!atk ") && message.author.id === "395678267207843872" || message.content.includes("!!atk ")  && message.author.id === "451782521114460181" || message.content.includes("!!atk ")  && message.author.id === "238760101232508928") {
         var stab = 1
         var attaque = message.content.split(" ")[1]
         var pkmn1 = message.content.split(" ")[2]
@@ -800,7 +800,7 @@ bot.on('message', message => {
 })
 
 bot.on('message', message => { //Read
-    if(message.content === "!!read" && message.author.id === "395678267207843872" || message.content === "!!read" && message.author.id === "451782521114460181"){
+    if(message.content === "!!read" && message.author.id === "395678267207843872" || message.content === "!!read" && message.author.id === "451782521114460181" || message.content === "!!read" && message.author.id === "238760101232508928"){
         dataBank = []
         dataBankPersos = []
         dataBankFight = []
@@ -815,7 +815,7 @@ bot.on('message', message => { //Read
 })
 
 bot.on('message', message => { //Sommeil
-    if(message.content === "!!sommeil" && message.author.id === "395678267207843872" || message.content === "!!sommeil" && message.author.id === "451782521114460181") {
+    if(message.content === "!!sommeil" && message.author.id === "395678267207843872" || message.content === "!!sommeil" && message.author.id === "451782521114460181" || message.content === "!!sommeil" && message.author.id === "238760101232508928") {
         var tourdodo = Math.floor(Math.random() * Math.floor(4))
         tourdodo += 1
         message.channel.send(":zzz: Le pokemon est endormis pendant " + tourdodo + " tours !")
@@ -824,7 +824,7 @@ bot.on('message', message => { //Sommeil
 })
 
 bot.on('message', message => { //Paralysie
-    if(message.content === "!!para" && message.author.id === "395678267207843872" || message.content === "!!para" && message.author.id === "451782521114460181") {
+    if(message.content === "!!para" && message.author.id === "395678267207843872" || message.content === "!!para" && message.author.id === "451782521114460181" || message.content === "!!para" && message.author.id === "238760101232508928") {
         var rollpara = Math.floor(Math.random() * Math.floor(100))
         var probapara = 25
         console.log(rollpara)
@@ -840,7 +840,7 @@ bot.on('message', message => { //Paralysie
 })
 
 bot.on('message', message => { //Statik
-    if(message.content === "!!statik" && message.author.id === "395678267207843872" || message.content === "!!statik" && message.author.id === "451782521114460181") {
+    if(message.content === "!!statik" && message.author.id === "395678267207843872" || message.content === "!!statik" && message.author.id === "451782521114460181" || message.content === "!!statik" && message.author.id === "238760101232508928") {
         var rollstatik = Math.floor(Math.random() * Math.floor(100))
         var probastatik = 30
         console.log(rollstatik)
@@ -856,7 +856,7 @@ bot.on('message', message => { //Statik
 })
 
 bot.on('message', message => { //Poison
-    if(message.content.includes("!!poison ") && message.author.id === "395678267207843872" || message.content.includes("!!poison ") && message.author.id === "451782521114460181") {
+    if(message.content.includes("!!poison ") && message.author.id === "395678267207843872" || message.content.includes("!!poison ") && message.author.id === "451782521114460181" || message.content.includes("!!poison ") && message.author.id === "238760101232508928") {
         readFight()
         var pkmnpoison = message.content.split(" ")[1]
         for(var ipoi = 0; ipoi < dataBankPersos.length; ipoi++){
@@ -888,7 +888,7 @@ bot.on('message', message => { //Joli Sourire
 })
 
 bot.on('message', message => { //Prio
-  if(message.content.includes("!!prio") && message.author.id === "395678267207843872" || message.content.includes("!!prio") && message.author.id === "451782521114460181") {
+  if(message.content.includes("!!prio") && message.author.id === "395678267207843872" || message.content.includes("!!prio") && message.author.id === "451782521114460181" || message.content.includes("!!prio") && message.author.id === "238760101232508928") {
     var pkmnprio1 = message.content.split(" ")[1]
     var pkmnprio2 = message.content.split(" ")[2]
     var pkmnprio3 = message.content.split(" ")[3]
@@ -1484,7 +1484,7 @@ bot.on('message', message => { // !!dégats poison
 })
 
 bot.on('message', message => { // !!heal
-  if(message.content.includes("!!heal ") && message.author.id === "395678267207843872" || message.content.includes("!!heal ") && message.author.id === "451782521114460181") {
+  if(message.content.includes("!!heal ") && message.author.id === "395678267207843872" || message.content.includes("!!heal ") && message.author.id === "451782521114460181" || message.content.includes("!!heal ") && message.author.id === "238760101232508928") {
     var nompkmn = message.content.split(" ")[1]
     var number = message.content.split(" ")[2]
     for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
@@ -1558,7 +1558,7 @@ bot.on('message', message => { // !!heal
 })
 
 bot.on('message', message => { // !!hurt
-  if(message.content.includes("!!hurt ") && message.author.id === "395678267207843872" || message.content.includes("!!hurt ") && message.author.id === "451782521114460181") {
+  if(message.content.includes("!!hurt ") && message.author.id === "395678267207843872" || message.content.includes("!!hurt ") && message.author.id === "451782521114460181" || message.content.includes("!!hurt ") && message.author.id === "238760101232508928") {
     var nompkmn = message.content.split(" ")[1]
     var number = message.content.split(" ")[2]
     for(var pkmnpva = 0; pkmnpva < dataBankPersos.length; pkmnpva++){
