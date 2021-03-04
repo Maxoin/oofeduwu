@@ -866,7 +866,7 @@ bot.on('message', message => { //Poison
           }
         }
         var pvpkmnpoison = Math.round((pvpokemonp *= 0.125) * 1) / 1
-        message.channel.send(":snake: **" + nompoison1 + "** subit **" + pvpkmnpoison + "** points dégats à cause du poison.")
+        message.channel.send(":snake: **" + nompoison1 + "** subit **" + pvpkmnpoison + "** points de dégàts à cause du poison.")
         message.delete()
     }
 })
